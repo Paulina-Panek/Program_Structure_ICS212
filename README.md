@@ -1,2 +1,4 @@
 # Program_Structure_ICS212
-Homeworks written in C and C++ for the Program Structure course
+Homeworks for ICS212 Program Structure at UH Manoa Fall 2018
+
+Homework0: Hello World
