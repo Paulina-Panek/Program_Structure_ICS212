@@ -13,23 +13,49 @@
 //  //
 //  //  DESCRIPTION:
 //  //   A simple program listing factors of an integer given
-//  //   given by user interface
+//  //   by user interface
 //  //
 //  //
 //  *************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h> /*atoi*/
+
+int isDivisible(int, int);
+
+/***************************************************************
+//  Function name: isDivisible(user_int, i)
+//  //
+//  //  DESCRIPTION:   Checks if the user integer (user_int) is divisible by
+//  //                 integers from 1 to user_int
+//  //
+//  //  Parameters:    user_int : integer entered by the user
+//  //                               
+//  //
+//  //  Return values: a table with indexed factors of user_int
+//  //                 
+//  //
+****************************************************************/
 
 int main()
 {
     
     int user_int, i, index;
+    char input[12];
 
     printf("This program calulates the factors of an integer provided by the user.\n");
     printf("Please enter an integer greater than 0:\n");
     
 
-    scanf("%d", &user_int);
+    fgets(input, 12, stdin);
+    
+    user_int = atoi(input);
+
+    while  (user_int == 0)
+    {
+        printf("You entered character(s). Please enter an integer.\n");
+        fgets(input, 12, stdin);
+    }
 
     while (user_int <= 0)
     {
@@ -38,6 +64,7 @@ int main()
         scanf("%d", &user_int);   
     }
     
+       
     printf("You entered: %d\n\n", user_int);
 
     printf("%10s", "Index");
