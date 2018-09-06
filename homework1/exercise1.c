@@ -48,24 +48,24 @@ int main()
     
 
     fgets(input, 12, stdin);
-    
-    user_int = atoi(input);
+     user_int = atoi(input);
 
-    while  (user_int == 0)
-    {
-        printf("You entered character(s). Please enter an integer.\n");
-        fgets(input, 12, stdin);
-        user_int = atoi(input);
-    }
+    while (user_int == 0 || user_int <= 0)
+    {  
+        if  (user_int == 0)
+            {
+            printf("You entered character(s). Please enter an integer.\n");
+            fgets(input, 12, stdin);
+            user_int = atoi(input);
+            }  
 
-    while (user_int <= 0)
-    {
-        printf("You entered: %d\n", user_int);
-        printf("Please enter a POSITIVE integer to check its factors:\n");
-        fgets(input, 12, stdin);
-        user_int = atoi(input);         
+        else if (user_int <= 0)
+        {  
+            printf("Please enter a POSITIVE integer to check its factors:\n");
+            fgets(input, 12, stdin);
+            user_int = atoi(input);         
+        }
     }
-    
        
     printf("You entered: %d\n\n", user_int);
 
