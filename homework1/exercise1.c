@@ -55,13 +55,15 @@ int main()
     {
         printf("You entered character(s). Please enter an integer.\n");
         fgets(input, 12, stdin);
+        user_int = atoi(input);
     }
 
     while (user_int <= 0)
     {
         printf("You entered: %d\n", user_int);
         printf("Please enter a POSITIVE integer to check its factors:\n");
-        scanf("%d", &user_int);   
+        fgets(input, 12, stdin);
+        user_int = atoi(input);         
     }
     
        
