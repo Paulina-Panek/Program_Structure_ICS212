@@ -9,10 +9,10 @@
 //  //
 //  //  DATE:        September 6th, 2018
 //  //
-//  //  FILE:        homework1.c
+//  //  FILE:        exercise1.c
 //  //
 //  //  DESCRIPTION:
-//  trcmp/   A simple program listing factors of an integer given
+//  //   A simple program listing factors of an integer given
 //  //   by user interface
 //  //
 //  //
@@ -54,7 +54,7 @@ int main()
     {             
         factor = isDivisible(user_int, i);
                 
-        if (factor ==1)
+        if (factor == 1)
         {
             printf("%10d%10d\n", index, i);
             index++;
@@ -116,8 +116,8 @@ int getInt()
         fgets(input, 12, stdin);
    
     /* Once user enters new input, below loop will first evaluate if it was 0
-    // Then, again use atoi and go through the loop to ensure new input not a 
-    // character */
+    // Then, again use atoi and go through the big loop to ensure new input 
+    // not a character */
  
         while (input[0] == '0')
         {
