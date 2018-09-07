@@ -24,7 +24,7 @@ void dummy(int, char, char *, float);
 
 int main(int argc, char* argv[])
 {
-    int num1, num2 = 13;
+    int i, num1, num2 = 13;
     char c = 'H';
     float score1 = 12.5;
     char ca[3] = "Hi";
@@ -40,6 +40,12 @@ int main(int argc, char* argv[])
     printf("argv[0] \taddress hex:\t%p  address_dec:\t%ld value:\t%c\n", &argv[0], (long)(&argv[0]), argv[0] );
     printf("argv\t address hex:\t%p  address_dec:\t%ld value:\t%c\n", &argv, (long)(&argv), argv);      
     printf("argv[0]\t%p\n", argv[0]);
+   
+    printf("\nWhen using sizeof function:\n\n");
+    
+    i = sizeof(score1);
+    printf("%d\n", i);
+
 
     dummy(num2, c, ca, score1);
 
@@ -50,7 +56,8 @@ int main(int argc, char* argv[])
 }
 
 void dummy(int x, char y, char * z, float w)
-{
+{   int i;
+
     printf("x\t address hex:\t%p  address_dec:\t%ld value:\t%d\n", &x, (long)(&x), x );
     printf("y\t address hex:\t%p  address_dec:\t%ld value:\t%c\n", &y, (long)(&y), y );
     printf("w\t address hex:\t%p  address_dec:\t%ld value:\t%f\n", &w, (long)(&w), w );
@@ -67,5 +74,10 @@ void dummy(int x, char y, char * z, float w)
     printf("y\t address hex:\t%p  address_dec:\t%ld value:\t%c\n", &y, (long)(&y), y );
     printf("w\t address hex:\t%p  address_dec:\t%ld value:\t%f\n", &w, (long)(&w), w );
     printf("z\t address hex:\t%p  address_dec:\t%ld value:\t%p\n", &z, (long)(&z), z );
- 
+    
+    printf("\nWhen using sizeof function:\n\n");
+    i = sizeof(w);
+    printf("%d\n", i);
+
+
 }
