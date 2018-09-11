@@ -1,5 +1,9 @@
 #-*- Makefile -*-
 
+#Paulina Panek
+#09/10/2018
+#ICS212 HW2a
+
 #target: dependencies
 #	action
 
@@ -17,6 +21,5 @@ isDivisible.o: isDivisible.c
 getInt.o: getInt.c
 	gcc -ansi -pedantic-errors -Wall -c getInt.c
 
-.PHONY: clean
 clean:
-	rm -f isDivisible.o getInt.o exercise1.o
+	rm -f *.o

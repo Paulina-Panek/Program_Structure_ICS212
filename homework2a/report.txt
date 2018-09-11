@@ -1,0 +1,25 @@
+The purpose of makefile utility is to automate builds. Let’s say we have a big project
+that makes use of several functions in several different executive files. We can have
+each function in a separate .c file. The advantage of that is if we update one function
+we can just compile that one file again and the changes will be included in every
+executable that uses it. This shortens time of compilation when compared to how much
+it’d take if we had everything in one big file for the entire  project. Makefile
+steps in in that it can automate the process of creating executables, so instead of
+manually compiling the updated file and linking it with the remaining ones, we just use
+Makefile and it’ll compile changed files and link them all together. Instead of typing
+a bunch of different commands and keeping track of updates, it is all automatic.
+
+Makefile goes over the dependency tree that we specify in the Makefile file. That file
+contains a header that specifies the format of the file is makefile (so the tab
+character before actions remains a tab, otherwise we will get errors) and recipes that
+consist of list of targets and actions. Makefile goes over that list. takes care of all
+the steps of compilation, includes header files where needed, links appropriate object
+files, and generates executables. It can also remove unnecessary object files at the end
+if we add that rule to keep our directory clean. This functionality in particular makes
+us less likely to delete files we do not want to delete.
+
+In a brief summary, the main benefits are time saved compiling since we only compile the
+updated files, performing all the steps of creating executables with one command rather
+than multiple ones, and automatization of the build process making it less prone to
+human-error and easier to keep our directories clean.
+
