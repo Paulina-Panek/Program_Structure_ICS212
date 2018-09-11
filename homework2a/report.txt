@@ -12,11 +12,13 @@ a bunch of different commands and keeping track of updates, it is all automatic.
 Makefile goes over the dependency tree that we specify in the Makefile file. That file
 contains a header that specifies the format of the file is makefile (so the tab
 character before actions remains a tab, otherwise we will get errors) and recipes that
-consist of list of targets and actions. Makefile goes over that list. takes care of all
-the steps of compilation, includes header files where needed, links appropriate object
-files, and generates executables. It can also remove unnecessary object files at the end
-if we add that rule to keep our directory clean. This functionality in particular makes
-us less likely to delete files we do not want to delete.
+consist of list of targets and actions. Makefile goes over that list and looks at
+timestamps of the source files. If a timestamp is out of date, it knows the file needs
+to be recompiled. Makefile takes care of all the steps of compilation, includes header
+files where needed, links appropriate object files, and generates executables. It can
+also remove unnecessary object files at the end if we add that rule to keep our directory
+clean. This functionality in particular makes us less likely to delete files we do not
+want to delete.
 
 In a brief summary, the main benefits are time saved compiling since we only compile the
 updated files, performing all the steps of creating executables with one command rather
