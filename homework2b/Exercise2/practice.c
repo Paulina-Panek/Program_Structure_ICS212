@@ -1,6 +1,40 @@
+/*****************************************************************
+//  //  NAME:        Paulina Panek
+//  //
+//  //  HOMEWORK:    2b
+//  //
+//  //  CLASS:       ICS 212
+//  //
+//  //  INSTRUCTOR:  Ravi Narayan
+//  //
+//  //  DATE:        September 13th, 2018
+//  //
+//  //  FILE:        practice.c
+//  //
+//  //  DESCRIPTION:
+//  //   A simple program that asks user to provide their first and
+//  //   last name, then generates a 6 character username in format
+//  //   LastFirst. If such username is shorter than 6 characters it
+//  //   adds 0s at the end. If it is longer, it'll cut it after the
+//  //   6th character
+//  //
+//  *************************************************************/
+
 #include <stdio.h>
 #include <string.h>
 
+/***************************************************************
+//  Function name: main()
+//  //
+//  //  DESCRIPTION:   Generates 6 character username from user 
+//  //                 first and last name
+//  //
+//  //  Parameters:    none
+//  //                             
+//  //
+//  //  Return values: always 0
+//  //                
+****************************************************************/
 
 int main ()
 {
