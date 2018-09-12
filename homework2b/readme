@@ -1,0 +1,7 @@
+Exercise 1:
+Write a function, halfstring, which creates a new string which skips every second characters of the first string.
+For example: "John Smith" would become "Jh mt"
+
+Exercise2:
+Write a main function that uses at least 5 different string functions from the library (e.g., strlen, strncpy, etc).
+This is a creative exercise. You can make up any combination of functions based on a user-input string.
