@@ -57,8 +57,7 @@ int main ()
 
     length = strlen(last); 
 
-    /* 3. STRCPY 4. STRNCAT If shorter than 6 characters, add 0s at the end.
-       5. STRNCPY If longer than 6, take only the first 6 */
+    /* 3. STRCPY 4. STRNCAT If shorter than 6 characters, add 0s at the end.*/
 
     if (length < 6)
     {
@@ -67,8 +66,9 @@ int main ()
         strncat(last, ifshort, howShort);
     }
 
-        strncpy(username, last, 6);
+    /* 5. STRNCPY Take only the first 6 character to create username*/
 
+        strncpy(username, last, 6);
 
     printf("Your username is:\t%s\n", username);
 
