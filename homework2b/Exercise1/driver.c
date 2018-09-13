@@ -3,11 +3,11 @@
 
 int main()
 {
-    int i, /* size_old, */ size_new;
+    int i, size_new;
     char string_old[200], string_new[101];
 
     printf("Enter the string you want to process:\n");
-    scanf("%s", string_old);
+    fgets( string_old, 200, stdin);
 
     i = 0;
 
@@ -15,16 +15,9 @@ int main()
     {
         i++;
     } 
- 
-/* Size of the original string without null character */
-
-/*    size_old = i; */
-
-/* Size of the processed array without  null character */
 
     size_new = (i/2);
 
-/*    string_old[size_old] = '\0'; */
 
     string_new[size_new] ='\0';
     
@@ -35,6 +28,9 @@ int main()
     } 
 
     halfstring(string_old, string_new);
+
+    printf("Old string:\t%s\n", string_old);
+    printf("New string:\t%s\n", string_new);
 
 return(0);
 }
