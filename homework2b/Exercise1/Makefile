@@ -16,7 +16,7 @@ halfstring.o: halfstring.c halfstring.h
 	gcc -ansi -pedantic-errors -Wall -c halfstring.c
 
 driver.o: driver.c halfstring.h
-	gcc -ansi -pedantic-errors -c driver.c
+	gcc -ansi -pedantic-errors -Wall -c driver.c
 
 clean:
 	rm -f *.o
