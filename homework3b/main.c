@@ -19,10 +19,16 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "header.h"
+#include "record.h"
 
 int debug, result;
 char keyword[5];
+/*struct record start;
+struct record *start;
 
+start = NULL;
+*/
 int  main(int argc, char *argv[])
 {
     if (argc > 1)
@@ -33,7 +39,6 @@ int  main(int argc, char *argv[])
         if ((argc < 3) && (result == 0))
         {
              debug = 1;
-             printf("debug = 1\n");
         }
 
         else 
@@ -44,8 +49,14 @@ int  main(int argc, char *argv[])
     else
     {
          debug = 0;
-         printf("debug = 0\n");
     }
+
+    printf("Choose what you would like to do:\n");
+    printf("Option 1: Add a New Record\n");
+    printf("Option 2: Print Record by Account Number\n");
+    printf("Option 3: Print All  Records\n");
+    printf("Option 4: Delete Record by Account Number\n");
+    printf("Option 5: Quit Program");
 
 return(0);
 }
