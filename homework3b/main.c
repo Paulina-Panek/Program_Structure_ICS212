@@ -57,7 +57,7 @@ running = 1;
     printf("Choose what you would like to do:\n");
     printf("Option 1: Add a New Record\n");
     printf("Option 2: Print Record by Account Number\n");
-    printf("Option 3: Print All  Records\n");
+    printf("Option 3: Print All Records\n");
     printf("Option 4: Delete Record by Account Number\n");
     printf("Option 5: Quit Program\n");
 
@@ -86,24 +86,33 @@ running = 1;
 
         case 2:
             printf("You chose Option 2\n"); 
+            
+            printf("Please enter the account number of the record you want to print:\n");
+            scanf("%d", &accountno);
+            
+            printRecord(start, accountno);
+
             break;
+        
         case 3:
-            printf("You chose Option 3\n"); 
-            break;
-        case 4:
-            printf("You chose Option 4\n");
+            printf("You chose Option 3\n");
+            printAllRecords(start);
             break;
 
+        case 4:
+            printf("You chose Option 4\n");
             printf("Please enter the account number to be deleted:\n");
             
             scanf("%d", &accountno);
-
+            deleteRecord(&start, accountno);
+            break;
 
         case 5:
             printf("You chose Option 5\n"); 
             printf("Exiting program.\n");
             running = 0;
             break;
+
         default:
             printf("Invalid choice.\n");   
             break;
