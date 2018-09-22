@@ -21,15 +21,17 @@
 #include <string.h>
 #include "record.h"
 
-int debug, result, choice;
-char keyword[5];
+int debug;
 
-/*struct record *start;
-
-start = NULL;
-*/
 int  main(int argc, char *argv[])
 {
+
+int result, choice;
+char keyword[5];
+struct record * start;
+
+start = NULL;
+
     if (argc > 1)
     {
         strcpy(keyword, "debug");
@@ -80,8 +82,16 @@ int  main(int argc, char *argv[])
         default:
             printf("Invalid choice.\n");   
             break;
- } 
+    }
 
+/*    while (choice > 0 && choice <= 5)
+    {
+
+
+
+
+    }
+*/
 return(0);
 }
 
