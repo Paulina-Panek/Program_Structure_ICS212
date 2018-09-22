@@ -53,7 +53,8 @@ running = 1;
          debug = 0;
     }
 
-
+while (running == 1)
+{
     printf("Choose what you would like to do:\n");
     printf("Option 1: Add a New Record\n");
     printf("Option 2: Print Record by Account Number\n");
@@ -77,6 +78,7 @@ running = 1;
             fgets(name, sizeof name, stdin);
 
             printf("Please enter the address of the new record:\n");
+            printf("Type $ after you are done and hit enter.\n");
             getaddress(address, sizeof address);           
 
             addRecord(&start, accountno, name, address); 
@@ -96,6 +98,7 @@ running = 1;
         
         case 3:
             printf("You chose Option 3\n");
+
             printAllRecords(start);
             break;
 
@@ -118,13 +121,21 @@ running = 1;
             break;
     }
 
-
+}
 
 return(0);
 }
 
-void getaddress (char address[], int alreadyThere)
+void getaddress (char address[], int address_size)
 {
-    printf("Please enter your address:\n");
+    char buffer;
+    int counter;
+
+    for (counter = 0; (((buffer = getchar()) != '$') && (counter < address_size)); counter++)
+    {
+        address[counter] = buffer;
+    }
+    
+    address[counter] = '\0';
 
 }
