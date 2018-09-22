@@ -19,13 +19,12 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "header.h"
 #include "record.h"
 
-int debug, result;
+int debug, result, choice;
 char keyword[5];
-/*struct record start;
-struct record *start;
+
+/*struct record *start;
 
 start = NULL;
 */
@@ -56,7 +55,32 @@ int  main(int argc, char *argv[])
     printf("Option 2: Print Record by Account Number\n");
     printf("Option 3: Print All  Records\n");
     printf("Option 4: Delete Record by Account Number\n");
-    printf("Option 5: Quit Program");
+    printf("Option 5: Quit Program\n");
+
+    scanf("%d", &choice);
+
+
+    switch (choice)
+    {
+        case 1:
+            printf("You chose Option 1\n");    
+             break;
+        case 2:
+            printf("You chose Option 2\n"); 
+            break;
+        case 3:
+            printf("You chose Option 3\n"); 
+            break;
+        case 4:
+            printf("You chose Option 4\n");
+            break;
+        case 5:
+            printf("You chose Option 5\n"); 
+            break;
+        default:
+            printf("Invalid choice.\n");   
+            break;
+ } 
 
 return(0);
 }
