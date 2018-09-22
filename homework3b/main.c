@@ -126,16 +126,3 @@ while (running == 1)
 return(0);
 }
 
-void getaddress (char address[], int address_size)
-{
-    char buffer;
-    int counter;
-
-    for (counter = 0; (((buffer = getchar()) != '$') && (counter < address_size)); counter++)
-    {
-        address[counter] = buffer;
-    }
-    
-    address[counter] = '\0';
-
-}

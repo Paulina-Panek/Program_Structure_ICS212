@@ -22,18 +22,18 @@
 #include "record.h"
 
 extern int debug;
-/*
-void getaddress (char address[], int alreadyThere)
+
+void getaddress (char address[], int address_size)
 {
-    char buffer[20];
-    int i;
+    char buffer;
+    int counter;
 
-    printf("Please enter your address:\n");
-
-    for (i=0;  buffer != '*'; i++)
+    for (counter = 0; (((buffer = getchar()) != '$') && (counter < address_size)); counter++)
     {
-    buffer[i] = fgetc(stdin);
+        address[counter] = buffer;
     }
     
-    printf("buffer\t: \n", buffer);
-} i*/
+    address[counter] = '\0';
+
+}
+
