@@ -1,4 +1,4 @@
-/*****************************************************************/
+/*****************************************************************
 //  NAME:        Paulina Panek
 //
 //  HOMEWORK:    3b
@@ -17,16 +17,17 @@
 //
 //  *************************************************************/
 
-#include <stdio>
-#include "header.h"
+#include <stdio.h>
 #include "record.h"
 
-int addRecord (record ** a, int b, char [] c, char [] d)
+int addRecord (struct record ** a, int b, char c[], char d[])
 {
+return(0);
 }
 
 int printRecord (struct record * e, int f)
 {
+return(0);
 }
 
 void printAllRecords (struct record * g)
@@ -35,5 +36,6 @@ void printAllRecords (struct record * g)
 
 int deleteRecord (struct record ** h, int i)
 {
+return(0);
 }
 

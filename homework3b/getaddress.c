@@ -19,10 +19,10 @@
 
 
 #include <stdio.h>
-
+#include "record.h"
 
 extern int debug;
-
+/*
 void getaddress (char address[], int alreadyThere)
 {
     char buffer[20];
@@ -30,9 +30,10 @@ void getaddress (char address[], int alreadyThere)
 
     printf("Please enter your address:\n");
 
-    for (i=0;  buffer != '\0'; i++)
+    for (i=0;  buffer != '*'; i++)
     {
     buffer[i] = fgetc(stdin);
     }
     
-}
+    printf("buffer\t: \n", buffer);
+} i*/

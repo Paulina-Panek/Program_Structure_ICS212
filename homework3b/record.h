@@ -8,13 +8,15 @@ typedef struct record
     struct record*     next;
 } record;
 
-/*int addRecord (struct record**, int, char [], char []);
+#endif
+
+int addRecord (struct record**, int, char [], char []);
 
 int printRecord (struct record*, int);
 
 void printAllRecords (struct record*);
 
-int deleteRecord (struct record**, int ); */
+int deleteRecord (struct record**, int );
 
 void getaddress (char[], int);
-#endif
+
