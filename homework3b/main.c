@@ -73,12 +73,15 @@ running = 1;
             scanf("%d", &accountno);
            
             printf("Please enter the name of the new record:\n");
-            fgets(name, 25, stdin);
+            getchar();
+            fgets(name, sizeof name, stdin);
 
             printf("Please enter the address of the new record:\n");
-            getaddress(address, accountno);           
+            getaddress(address, sizeof address);           
 
             addRecord(&start, accountno, name, address); 
+            
+            printf("\n");
             break;
 
         case 2:
