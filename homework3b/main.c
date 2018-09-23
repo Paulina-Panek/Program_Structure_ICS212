@@ -81,6 +81,16 @@ while (running == 1)
             printf("Type $ after you are done and hit enter.\n");
             getaddress(address, sizeof address);           
 
+            if (debug == 1)
+            {
+                printf("Function Called:\t addRecord\n");
+                printf("Parameters Passed:\n");
+                printf("account number:\t%d\n", accountno);
+                printf("name:\t%s\n", name);
+                printf("address:\n");
+                printf("%s\n", address);
+           }
+
             addRecord(&start, accountno, name, address); 
             
             printf("\n");
@@ -92,6 +102,14 @@ while (running == 1)
             printf("Please enter the account number of the record you want to print:\n");
             scanf("%d", &accountno);
             
+            if (debug == 1)
+            {
+                printf("Function Called:\t printRecord\n");
+                printf("Parameters Passed:\n");
+                printf("account number:\t%d\n", accountno);
+            }
+
+           
             printRecord(start, accountno);
 
             break;
@@ -99,6 +117,11 @@ while (running == 1)
         case 3:
             printf("You chose Option 3\n");
 
+            if (debug == 1)
+            {
+                printf("Function Called:\t printAllRecord\n");
+            }
+ 
             printAllRecords(start);
             break;
 
@@ -107,11 +130,26 @@ while (running == 1)
             printf("Please enter the account number to be deleted:\n");
             
             scanf("%d", &accountno);
+
+            if (debug == 1)
+            {
+                printf("Function Called:\t deleteRecord\n");
+                printf("Parameters Passed:\n");
+                printf("account number:\t%d\n", accountno);
+            }
+
             deleteRecord(&start, accountno);
             break;
 
         case 5:
             printf("You chose Option 5\n"); 
+ 
+            if (debug == 1)
+            {
+                printf("Function Called:\t none\n");
+                printf("Parameters Passed:\tnone\n");
+            }
+
             printf("Exiting program.\n");
             running = 0;
             break;
