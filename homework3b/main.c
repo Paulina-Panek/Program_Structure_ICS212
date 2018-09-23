@@ -12,8 +12,9 @@
 // //  FILE:        main.c
 // //
 // //  DESCRIPTION:
-// //   
-// // 
+// //  This is a user interface that allows to add, remove, and 
+// //  print records in a database storing account numbers, names,
+// //  and addresses.
 // //
 ***********************************************************/
 
@@ -21,7 +22,7 @@
 #include <string.h>
 #include "record.h"
 
-int debug;
+int debugmode;
 
 int  main(int argc, char *argv[])
 {
@@ -40,7 +41,7 @@ running = 1;
         
         if ((argc < 3) && (result == 0))
         {
-             debug = 1;
+             debugmode = 1;
         }
 
         else 
@@ -50,7 +51,7 @@ running = 1;
     }
     else
     {
-         debug = 0;
+         debugmode = 0;
     }
 
 while (running == 1)
@@ -63,7 +64,6 @@ while (running == 1)
     printf("Option 5: Quit Program\n");
 
     scanf("%d", &choice);
-
 
     switch (choice)
     {
@@ -81,14 +81,14 @@ while (running == 1)
             printf("Type $ after you are done and hit enter.\n");
             getaddress(address, sizeof address);           
 
-            if (debug == 1)
+            if (debugmode == 1)
             {
-                printf("Function Called:\t addRecord\n");
+                printf("Function Called:\t addRecord\n\n");
                 printf("Parameters Passed:\n");
                 printf("account number:\t%d\n", accountno);
                 printf("name:\t%s\n", name);
                 printf("address:\n");
-                printf("%s\n", address);
+                printf("%s\n\n", address);
            }
 
             addRecord(&start, accountno, name, address); 
@@ -102,25 +102,25 @@ while (running == 1)
             printf("Please enter the account number of the record you want to print:\n");
             scanf("%d", &accountno);
             
-            if (debug == 1)
+            if (debugmode == 1)
             {
-                printf("Function Called:\t printRecord\n");
+                printf("Function Called:\t printRecord\n\n");
                 printf("Parameters Passed:\n");
-                printf("account number:\t%d\n", accountno);
+                printf("account number:\t%d\n\n", accountno);
             }
 
            
             printRecord(start, accountno);
-
             break;
         
         case 3:
             printf("You chose Option 3\n");
 
-            if (debug == 1)
+            if (debugmode == 1)
             {
-                printf("Function Called:\t printAllRecord\n");
-            }
+                printf("Function Called:\t printAllRecord\n\n");
+                printf("Parameters Passed:\tnone\n\n");
+           }
  
             printAllRecords(start);
             break;
@@ -131,11 +131,11 @@ while (running == 1)
             
             scanf("%d", &accountno);
 
-            if (debug == 1)
+            if (debugmode == 1)
             {
-                printf("Function Called:\t deleteRecord\n");
+                printf("Function Called:\t deleteRecord\n\n");
                 printf("Parameters Passed:\n");
-                printf("account number:\t%d\n", accountno);
+                printf("account number:\t%d\n\n", accountno);
             }
 
             deleteRecord(&start, accountno);
@@ -144,23 +144,21 @@ while (running == 1)
         case 5:
             printf("You chose Option 5\n"); 
  
-            if (debug == 1)
+            if (debugmode == 1)
             {
                 printf("Function Called:\t none\n");
-                printf("Parameters Passed:\tnone\n");
+                printf("Parameters Passed:\tnone\n\n");
             }
 
-            printf("Exiting program.\n");
+            printf("Exiting program.\n\n");
             running = 0;
             break;
 
         default:
-            printf("Invalid choice.\n");   
+            printf("Invalid choice.\n\n");   
             break;
     }
-
 }
 
 return(0);
 }
-

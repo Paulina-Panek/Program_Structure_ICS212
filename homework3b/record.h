@@ -1,5 +1,24 @@
+/****************************************************************
+//  NAME:        Paulina Panek
+//
+//  HOMEWORK:    3b
+//
+//  CLASS:       ICS 212
+//
+//  INSTRUCTOR:  Ravi Narayan
+//
+//  DATE:        September 22nd, 2018
+//
+//  FILE:        record.h
+//
+//  DESCRIPTION:
+//  Header file that defines structure of entries in the database
+//  Also contains all the function prototypes
+//  *************************************************************/
+
 #ifndef RECORD
 #define RECORD
+
 typedef struct record
 {
     int                accountno;

@@ -12,8 +12,12 @@
 //  FILE:        getaddress.c
 //
 //  DESCRIPTION:
-//  Function that asks user for address and stores multiple lines   
+//  Function that stores multiple lines   
 //  of user input.
+//
+//  Parameters:  address[] : array where the address will be stored
+//               address_size : size of the array defined in main.c
+//
 //
 //  *************************************************************/
 
@@ -21,7 +25,7 @@
 #include <stdio.h>
 #include "record.h"
 
-extern int debug;
+extern int debugmode;
 
 void getaddress (char address[], int address_size)
 {
