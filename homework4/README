@@ -1,0 +1,13 @@
+Write the pseudocode for the function addRecord with the following features:
+
+must add/insert a new record into the list so that all records are sorted in ascending order by account number.
+
+It must accept a duplicate account number.
+
+e.g., when you are inserting "1001" to the list of "1000, 1001, 1002, 1003, 1008, 1010", the result will be "1000, 1001, 1001, 1002, 1003, 1008, 1010".
+
+There must be no use of any C code (also no curly braces) in the pseudocode
+
+You may ONLY use the vocabulary from the list below
+
+The functioning code will be about 30 lines. Pseudocode with more than 40 lines is not acceptable.
