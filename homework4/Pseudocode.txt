@@ -2,16 +2,27 @@
 addRecord
 ------------------------------------
 
-Define a pointer to record called temp
-Allocate a heap space and store its address into temp
+define a pointer to record called temp_prev
+define a pointer to record called temp_new
+define an int called value
 
 if (start is equal NULL)
-    
+    allocate a heap space and store its address into start
     copy from uaccountno to accountno in the record whose address is in start
     copy from uname to name in the record whose address is in start
     copy from uaddress to address in the record whose address is in start
     copy from NULL to next in the record whose address is in start
     
 else
+    allocate a heap space and store its address into temp_new
+    copy from accountno in the record whose address is in start to value
+    
+    while (value is less than uaccountno)
+        copy address from next of the record
+        
+    if (value is greater than uaccountno)
+        allocate a heap space and store its address into next
+ 
+    else
     
     
