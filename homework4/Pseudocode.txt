@@ -29,4 +29,4 @@ else
                 copy from temp_next to temp_prev
    
    copy from new_list to next of the record whose address is temp_prev
-   copy from temp_next to next of the record whose address is in new_record   
+   copy from temp_next to next of the record whose address is in new_list
