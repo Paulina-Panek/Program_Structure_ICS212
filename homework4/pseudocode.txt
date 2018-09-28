@@ -1,0 +1,38 @@
+-----------------------------------
+addRecord
+------------------------------------
+
+define a pointer to record called temp_prev
+define a pointer to record called temp_next
+define a pointer to record called new_list
+define an int called value
+
+if (start is equal NULL)
+    allocate a heap space and store its address into start
+    copy from uaccountno to accountno in the record whose address is in start
+    copy from uname to name in the record whose address is in start
+    copy from uaddress to address in the record whose address is in start
+    copy from NULL to next in the record whose address is in start
+		        
+else
+    allocate a heap space and store its address into new_list
+    copy from uaccountno to accountno in the record whose address is in new_list
+    copy from uname to name in the record whose address is in new_list
+    copy from uaddress to address in the record whose address is in new_list
+    copy from accountno in the record whose address is in start to value
+    copy from start to temp_prev
+    copy from next of the record whose address is in temp_prev to temp_next
+						        
+    while (value is less than uaccountno)
+        copy address from next of the record whose address is in temp_prev to temp_next
+	copy from accountno in the record whose address is in temp_next to value
+    if (next of the record whose address is in temp_next is equal to NULL)
+        copy from NULL to next of the record whose address is in new_list
+	copy from new_list to next of the record whose address is temp_next
+	copy from uaccount to value       
+    if (value is less than uaccountno)
+        copy from temp_next to temp_prev
+
+    if (next of the record whose address is in temp_next is not equal to NULL)
+        copy from new_list to next of the record whose address is temp_prev
+        copy from temp_next to next of the record whose address is in new_list
