@@ -28,7 +28,7 @@ else
         copy from accountno in the record whose address is in temp_next to value
         if (temp_next is equal to NULL)
             copy from uaccount to value
-        if (value is less than uaccountno)
+        if (value is greater than uaccountno)
                 copy from temp_next to temp_prev
    
    copy from new_list to next of the record whose address is temp_prev
