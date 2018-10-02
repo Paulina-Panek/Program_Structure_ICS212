@@ -1,0 +1,3 @@
+Write two functions, which read/write an array of records to/from a file.
+Write driver code to test the two functions.
+The driver code and the test output must show clearly that the file input and output work correctly.
