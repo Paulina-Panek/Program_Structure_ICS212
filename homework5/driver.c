@@ -16,10 +16,21 @@
 //  do not contain terminal I/O functions. 
 //  *************************************************************/
 
-int main
+#include <stdio.h>
+#include "record.h"
+#include "prototypes.h"
+#include <string.h>
+
+int main(int argc, char* argv[])
 {
 
 struct record bankone[5];
 int numcustomers;
+char filename[15];
 
+strcpy(filename, argv[1]);
+
+
+
+return(0);
 }
