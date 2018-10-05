@@ -16,7 +16,7 @@
 //  do not contain terminal I/O functions. 
 //  *************************************************************/
 
-#include<stdio.h>
+#include <stdio.h>
 #include "record.h"
 
 int readfile( struct record accarray[ ], int* numcust, char filename[ ] );
@@ -27,22 +27,25 @@ int readfile( struct record accarray[], int* numcust, char filename[])
     FILE * inf;
     int i;
 
+    i = 0;
     inf = fopen(filename, "r");
 
     if (inf == NULL)
     {
+        fclose(inf);
+        *numcust = i;    
         return(1);    
     }
     else
     {
-        while (i = 0; feof == 0, i++)
+        for (i = 0; feof(inf) == 0; i++)
         { 
-        fscanf(filename, "%d", &accarray.accountno[i]);
-        fgets(&accarray.name[i], 20, filename);
-        fgets(&accarray.address[i], 80, filename);
+        fscanf(inf, "%d", accarray[i].accountno);
+        fgets(accarray[i].name, 20, inf);
+        fgets(accarray[i].address, 80, inf);
         }
 
-    fclose(filename);
+    fclose(inf);
     *numcust = i;    
     
     return(0);
@@ -52,5 +55,26 @@ int readfile( struct record accarray[], int* numcust, char filename[])
 
 int writefile( struct record accarray[], int numcust, char filename[] )
 {
+    FILE * outf;
+    int i;
 
+    outf = fopen(filename, "w+");
+
+    if (outf == NULL)
+    {
+        return(1);
+    }
+    else
+    {
+        for (i =0; i < numcust; i++)
+        {
+        fprintf(outf,"%d\n", accarray[i].accountno);
+        fprintf(outf, "%s\n", accarray[i].name);
+        fprintf(outf, "%s\n", accarray[i].address);
+    }
+    fclose(outf);
+    numcust = i;
+    
+    return(0);
+    }
 }
