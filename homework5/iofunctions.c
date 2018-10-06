@@ -16,6 +16,7 @@
 //  do not contain terminal I/O functions. 
 //  *************************************************************/
 
+#include <string.h>
 #include <stdio.h>
 #include "record.h"
 #include "prototypes.h"
@@ -23,9 +24,12 @@
 int readfile( struct record accarray[], int* numcust, char filename[])
 {
     FILE * inf;
-    int i;
+    int i, j, eof_check;
+    char  c; 
 
     i = 0;
+    eof_check = 0;
+
     inf = fopen(filename, "r");
 
     if (inf == NULL)
@@ -36,20 +40,26 @@ int readfile( struct record accarray[], int* numcust, char filename[])
     }
     else
     {
-        for (i = 0; feof(inf) == 0; i++)
+        for (i = 0; (feof(inf) == 0 && eof_check == 0); i++)
         { 
-        fscanf(inf, "%d", &accarray[i].accountno);
+        fscanf(inf, "%d\n", &accarray[i].accountno);
         fgets(accarray[i].name, 20, inf);
         fgets(accarray[i].address, 80, inf);
-        }
-
+            for (j =0; j<2; j++)
+            {
+                c = fgetc(inf);
+                if (c  == EOF)
+                {
+                    eof_check = 1;
+                } 
+            }
+         }
     fclose(inf);
     *numcust = i;    
     
     return(0);
     } 
 }
-
 
 int writefile( struct record accarray[], int numcust, char filename[] )
 {

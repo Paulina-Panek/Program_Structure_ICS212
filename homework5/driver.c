@@ -26,11 +26,12 @@ int main(int argc, char* argv[])
 
 struct record bankone[5];
 int numcustomers;
-char filename[15];
+char filename[15], filename2[15];
 
 strcpy(filename, argv[1]);
+strcpy(filename2, argv[2]);
 
-printf("File tested:\t%s\n", filename);
+printf("File to be written:\t%s\n", filename);
 
 /*****************************************************
 // Hardcoded array of struct records for tests START
@@ -62,9 +63,20 @@ strcpy(bankone[4].address, "San Francisco, California");
 
 numcustomers = (sizeof(bankone))/(sizeof(bankone[0]));
 
-printf("Number of customers:\t%d\n", numcustomers);
+printf("Number of customers before calling any function:\t%d\n\n", numcustomers);
 
 writefile(bankone, numcustomers, filename);
+printf("File the function writefile written to:\t%s\n", filename);
+printf("Number of customers:\t%d\n\n", numcustomers);
+
+readfile(bankone, &numcustomers, filename);
+printf("File the function readfile read from:\t%s\n", filename);
+printf("Number of customers:\t%d\n\n", numcustomers);
+
+writefile(bankone, numcustomers, filename);
+printf("File the function writefile written to:\t%s\n", filename);
+printf("Number of customers:\t%d\n\n", numcustomers);
+
 
 
 return(0);
