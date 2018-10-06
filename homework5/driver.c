@@ -60,10 +60,12 @@ strcpy(bankone[4].address, "San Francisco, California\n");
 // Hardcoded array of struct records for tests END
 // **************************************************/
 
-/*numcustomers = sizeof(bankone);*/
-/*writefile(bankone , &numcustomers, filename);*/
+numcustomers = (sizeof(bankone))/(sizeof(bankone[0]));
+
+printf("Number of customers:\t%d\n", numcustomers);
+
+writefile(bankone, numcustomers, filename);
 
 
-/*printf("%d\n", numcustomers);*/
 return(0);
 }
