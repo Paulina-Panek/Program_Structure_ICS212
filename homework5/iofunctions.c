@@ -38,7 +38,7 @@ int readfile( struct record accarray[], int* numcust, char filename[])
     {
         for (i = 0; feof(inf) == 0; i++)
         { 
-        fscanf(inf, "%d", accarray[i].accountno);
+        fscanf(inf, "%d", &accarray[i].accountno);
         fgets(accarray[i].name, 20, inf);
         fgets(accarray[i].address, 80, inf);
         }
@@ -69,6 +69,7 @@ int writefile( struct record accarray[], int numcust, char filename[] )
         fprintf(outf,"%d\n", accarray[i].accountno);
         fprintf(outf, "%s\n", accarray[i].name);
         fprintf(outf, "%s\n", accarray[i].address);
+        fprintf(outf, "\n");
     }
     fclose(outf);
     numcust = i;
