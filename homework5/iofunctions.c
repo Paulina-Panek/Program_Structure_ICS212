@@ -76,8 +76,8 @@ int writefile( struct record accarray[], int numcust, char filename[] )
         for (i =0; i < numcust; i++)
         {
         fprintf(outf,"%d\n", accarray[i].accountno);
-        fprintf(outf, "%s\n", accarray[i].name);
-        fprintf(outf, "%s\n", accarray[i].address);
+        fprintf(outf, "%s", accarray[i].name);
+        fprintf(outf, "%s", accarray[i].address);
         fprintf(outf, "\n");
     }
     fclose(outf);
