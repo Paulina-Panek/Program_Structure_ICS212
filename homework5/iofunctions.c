@@ -21,10 +21,29 @@
 #include "record.h"
 #include "prototypes.h"
 
+/***************************************************************
+//  Function name: readfile
+// 
+//   DESCRIPTION:   Reads struct record data from a file and stores
+//                  them as an array of struct record
+// 
+//   Parameters:    accarray(struct record) : array of struct records
+//                             
+//                  numcust (int*) : pointer to number of struct records in the
+//                                   array
+//
+//                  filename(char) : name of the file read from
+//                  
+//   Return values:  0 : success
+//                   1 : error opening the file
+// 
+//  ****************************************************************/ 
+
+
 int readfile( struct record accarray[], int* numcust, char filename[])
 {
     FILE * inf;
-    int i, eof_check, account_temp;
+    int i, value, eof_check, account_temp;
    
     i = 0;
     eof_check = 0;
@@ -35,7 +54,7 @@ int readfile( struct record accarray[], int* numcust, char filename[])
     {
         fclose(inf);
         *numcust = i;    
-        return(1);    
+        value = 1;    
     }
     else
     {
@@ -53,36 +72,61 @@ int readfile( struct record accarray[], int* numcust, char filename[])
                 fgets(accarray[i].address, 80, inf);
             }
         }
+
     fclose(inf);
     *numcust = i;    
-    
-    return(0);
+    value = 0;
     } 
+
+return(value);
+
 }
+
+/***************************************************************
+//  Function name: writefile
+// 
+//   DESCRIPTION:   Writes or updates a file with struct record data
+//                  from an array
+// 
+//   Parameters:    accarray(struct record) : array of struct records
+//                             
+//                  numcust (int) : number of struct records in the
+//                                   array
+//
+//                  filename(char) : name of the file to be written
+//                  
+//   Return values:  0 : success
+//                   1 : error opening the file
+// 
+//  ****************************************************************/ 
 
 int writefile( struct record accarray[], int numcust, char filename[] )
 {
     FILE * outf;
-    int i;
+    int i, value;
 
     outf = fopen(filename, "w+");
 
     if (outf == NULL)
     {
-        return(1);
+        value = 1;
     }
     else
     {
         for (i =0; i < numcust; i++)
         {
-        fprintf(outf,"%d\n", accarray[i].accountno);
-        fprintf(outf, "%s", accarray[i].name);
-        fprintf(outf, "%s", accarray[i].address);
-        fprintf(outf, "\n");
+            fprintf(outf,"%d\n", accarray[i].accountno);
+            fprintf(outf, "%s", accarray[i].name);
+            fprintf(outf, "%s", accarray[i].address);
+            fprintf(outf, "\n");
+        }
+
+        fclose(outf);
+        numcust = i;
+        value = 0;
     }
-    fclose(outf);
-    numcust = i;
-    
-    return(0);
-    }
+
+return(value);
+
 }
+

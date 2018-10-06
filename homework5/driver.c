@@ -9,17 +9,32 @@
 //
 //  DATE:        October 6th, 2018
 //
-//  FILE:        iofunctions.c
+//  FILE:        driver.c
 //
 //  DESCRIPTION:
-//  Contains readfile and writefile functions. Note the functions
-//  do not contain terminal I/O functions. 
+//  Tests writefile and readfile functions.
+//  
 //  *************************************************************/
 
 #include <stdio.h>
 #include "record.h"
 #include "prototypes.h"
 #include <string.h>
+
+/***************************************************************
+//  Function name:  main
+// 
+//   DESCRIPTION:   Provides initial struct record data for writefile. Passes
+//                  parameters to readfile. Prints tests information on stdout.            
+//
+//   Parameters:    argc(int) : number of parameters user used when starting
+//                              the program
+//                          
+//                  argv(char*) : argv[1] is the file to be written
+//                                argv[2] is the file to be read
+//                                   
+//   Return value:  Always 0
+//  ****************************************************************/ 
 
 int main(int argc, char* argv[])
 {
@@ -65,19 +80,34 @@ numcustomers = (sizeof(bankone))/(sizeof(bankone[0]));
 
 printf("Number of customers before calling any function:\t%d\n\n", numcustomers);
 
+printf("TEST 1: WRITING HARDCODED RECORDS TO FILE:\n\n");
 writefile(bankone, numcustomers, filename);
 printf("File the function writefile written to:\t%s\n", filename);
 printf("Number of customers:\t%d\n\n", numcustomers);
 
+printf("TEST 2: READING FROM FILE GENERATED IN TEST 1:\n\n");
 readfile(bankone, &numcustomers, filename);
 printf("File the function readfile read from:\t%s\n", filename);
 printf("Number of customers:\t%d\n\n", numcustomers);
 
-writefile(bankone, numcustomers, filename);
-printf("File the function writefile written to:\t%s\n", filename);
+printf("TEST 3: WRITING THE DATA READ IN TEST 2 TO output_test3.txt\n");
+printf("Output file of TEST1 and output file of TEST3 should be the same\n\n");
+writefile(bankone, numcustomers, "output_test3.txt");
+printf("File the function writefile written to:\t%s\n", "output_test3.txt");
 printf("Number of customers:\t%d\n\n", numcustomers);
 
+printf("TEST 4: READING FROM A SAMPLE FILE\n");
+printf("Uses the second file specified by the user when calling driver\n\n");
+readfile(bankone, &numcustomers, filename2);
+printf("File the function readfile read from:\t%s\n", filename2);
+printf("Number of customers:\t%d\n\n", numcustomers);
 
+printf("TEST 5: WRITING THE DATA READ IN TEST 4 TO output_test5.txt\n");
+printf("The sample file used in TEST4 should be the same as output_test5.txt\n\n");
+writefile(bankone, numcustomers, "output_test5.txt");
+printf("File the function writefile written to:\t%s\n", "output_test5.txt");
+printf("Number of customers:\t%d\n\n", numcustomers);
 
 return(0);
+
 }
