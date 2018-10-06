@@ -24,9 +24,8 @@
 int readfile( struct record accarray[], int* numcust, char filename[])
 {
     FILE * inf;
-    int i, j, eof_check;
-    char  c; 
-
+    int i, eof_check, account_temp;
+   
     i = 0;
     eof_check = 0;
 
@@ -42,18 +41,18 @@ int readfile( struct record accarray[], int* numcust, char filename[])
     {
         for (i = 0; (feof(inf) == 0 && eof_check == 0); i++)
         { 
-        fscanf(inf, "%d\n", &accarray[i].accountno);
-        fgets(accarray[i].name, 20, inf);
-        fgets(accarray[i].address, 80, inf);
-            for (j =0; j<2; j++)
+            if (fscanf(inf, "%d\n", &account_temp) != 1)
             {
-                c = fgetc(inf);
-                if (c  == EOF)
-                {
-                    eof_check = 1;
-                } 
+                eof_check = 1;
+                i--;
             }
-         }
+            else
+            {
+                accarray[i].accountno = account_temp;
+                fgets(accarray[i].name, 20, inf);
+                fgets(accarray[i].address, 80, inf);
+            }
+        }
     fclose(inf);
     *numcust = i;    
     
