@@ -1,0 +1,19 @@
+-----------------------------------
+deleteRecord
+-----------------------------------
+
+define a pointer to record called temp_old
+define a pointer to record called temp_new
+define an int called rtrn_val
+
+copy from start to temp_old
+
+if (start is equal NULL)
+    copy from -1 to rtrn_val
+   
+else
+    copy from next of the record whose address is in temp_old to temp_new
+
+    while (accountno in the record whose address is in temp_old is not equal uaccountno)
+        copy from temp_new to temp_old
+        copy from next of the record whose address is in temp_old to temp_new 
