@@ -1,0 +1,6 @@
+Write the pseudocode of the a function, deleteRecord, to delete a record in the linked list of records.
+
+Assume the following variables are already defined, initialized and available for you to use:
+
+start: The pointer to the first record of the list (or NULL)
+uaccountno: The user's account number (integer)
