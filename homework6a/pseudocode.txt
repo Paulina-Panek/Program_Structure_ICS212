@@ -27,6 +27,17 @@ else
                 if (temp_new is equal to NULL)
                     copy from -1 to rtrn_val
 
-                else 
-                copy from accountno in the record whose address is in temp_new to value
+                else             
+                    copy from accountno in the record whose address is in temp_new to value
+ 
+                    while (value is equal to uaccountno)
+                         copy from next of the record whose address is in temp_new to next of the record whose address is in temp_old
+                         release the space whose address is in temp_new
+                         copy from 0 to rtrn_val
+                         copy from next of the record whose address is in temp_old to temp_new
+                         copy from accountno in the record whose address is in temp_new to value
           
+    if (value is greater than uaccountno)
+         copy from -1 to rtrn_val
+
+return rtrn_val
