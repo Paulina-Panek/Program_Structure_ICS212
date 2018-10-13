@@ -31,6 +31,8 @@ if (start is not equal NULL)
         copy from 0 to rtrn_val
         copy from next of the record whose address is in temp_old to temp_new
             if (temp_new is not equal to NULL)
-            copy from accountno in the record whose address is in temp_new to value
-          
+                copy from accountno in the record whose address is in temp_new to value
+            else
+                copy from uaccountno + 1 to value
+
 return rtrn_val
