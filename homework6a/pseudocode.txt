@@ -7,38 +7,30 @@ define a pointer to record called temp_new
 define an int called rtrn_val
 define an int called value
 
-if (start is equal NULL)
-    copy from -1 to rtrn_val
-   
-else
+copy from -1 to rtrn_val
+
+if (start is not equal NULL)
+
     copy from start to temp_old
-    copy from next of the record whose address is in temp_old to temp_new
     copy from accountno in the record whose address is in start to value
 
     while (value is less than uaccountno)
-        copy from temp_new to temp_old
+        copy address from next of the record whose address is in temp_old to temp_new
 
-            if (temp_old is equal to NULL)
-                copy from -1 to to rtrn_val
+        if (temp_new is equal to NULL)
+            copy from uaccountno + 1 to value        
 
-            else
-                copy from next of the record whose address is in temp_old to temp_new
-        
-                if (temp_new is equal to NULL)
-                    copy from -1 to rtrn_val
+        else
+            copy from accountno in the record whose address is in temp_new to value 
+            if (value is less than uaccountno)
+                copy from temp_new to temp_old
 
-                else             
-                    copy from accountno in the record whose address is in temp_new to value
- 
-                    while (value is equal to uaccountno)
-                         copy from next of the record whose address is in temp_new to next of the record whose address is in temp_old
-                         release the space whose address is in temp_new
-                         copy from 0 to rtrn_val
-                         copy from next of the record whose address is in temp_old to temp_new
-                             if (temp_new is not equal to NULL)
-                                 copy from accountno in the record whose address is in temp_new to value
+    while (value is equal to uaccountno)
+        copy from next of the record whose address is in temp_new to next of the record whose address is in temp_old
+        release the space whose address is in temp_new
+        copy from 0 to rtrn_val
+        copy from next of the record whose address is in temp_old to temp_new
+            if (temp_new is not equal to NULL)
+            copy from accountno in the record whose address is in temp_new to value
           
-    if (value is greater than uaccountno)
-         copy from -1 to rtrn_val
-
 return rtrn_val
