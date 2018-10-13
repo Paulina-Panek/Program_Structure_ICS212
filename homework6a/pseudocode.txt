@@ -35,7 +35,8 @@ else
                          release the space whose address is in temp_new
                          copy from 0 to rtrn_val
                          copy from next of the record whose address is in temp_old to temp_new
-                         copy from accountno in the record whose address is in temp_new to value
+                             if (temp_new is not equal to NULL)
+                                 copy from accountno in the record whose address is in temp_new to value
           
     if (value is greater than uaccountno)
          copy from -1 to rtrn_val
