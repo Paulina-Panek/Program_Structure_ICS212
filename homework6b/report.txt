@@ -19,6 +19,7 @@ sccs edit - checks out a writable version for edits
 
 sccs delta - checks in changes, will prompt the user to comment on the changes
 
-sccs get - retrieves a read-only copy of the file
+sccs get - retrieves a read-only copy of the file, can be used to get a particular
+           revision of a file
 
 sccs prt - provides history of the file
