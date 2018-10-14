@@ -9,4 +9,16 @@ information on who, when, and why updated the file, identify the version of the 
 file, create new releases or ensure only one person is editing a file at a given time.
 
 SCCS was created in the 1970s for IBM and was later adapted for UNIX and it was the first 
-source control system. Nowadays, it is almost obsolete as more modern tools replaced it. 
+source control system. Nowadays, it is almost obsolete as more modern tools replaced it.
+
+Reviewed commands:
+sccs create - places file under SCCS control, creates a history file and a read-only
+              original file
+
+sccs edit - checks out a writable version for edits
+
+sccs delta - checks in changes, will prompt the user to comment on the changes
+
+sccs get - retrieves a read-only copy of the file
+
+sccs prt - provides history of the file
