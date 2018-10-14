@@ -1,0 +1,1 @@
+The Source Code Control System (SCCS) is a version control system that tracks updates done to the code.
