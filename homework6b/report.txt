@@ -1,1 +1,6 @@
-The Source Code Control System (SCCS) is a collection of UNIX system commands that track updates done to the code. It consists of SCCS commands and SCCS files. The idea behind it is that it is not efficient to keep source files of every created versions as a lot of the code will overlap from version to version. Instead, SCCS keeps only the original source code and images of changes done to it in successive versions. SCCS makes it easy to retrieve the desired version of software, store information on who, when and why updated the file or identify the version of the retrieved file.
+The Source Code Control System (SCCS) is a collection of UNIX system commands that track updates done to the code.
+It consists of SCCS commands and SCCS files. The idea behind it is that it is not efficient to keep source files of
+every created versions as a lot of the code will overlap from version to version. Instead, SCCS keeps only the
+original source code and images of changes done to it in successive versions. SCCS makes it easy to retrieve the
+desired version of software, store information on who, when and why updated the file or identify the version of the
+retrieved file.
