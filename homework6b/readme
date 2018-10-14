@@ -1,0 +1,7 @@
+Read and review SCCS. Use it for Homework 3b files including the record.h and Makefile. Explain and show proof of SCCS usage of the following SCCS sub-commands (don't use any other sub-commands):
+
+sccs create
+sccs edit
+sccs delta
+sccs get
+sccs prt
