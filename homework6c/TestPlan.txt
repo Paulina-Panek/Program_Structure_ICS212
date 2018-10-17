@@ -1,0 +1,20 @@
+Test 1:	Start the program by typing the program name with no arguments, e.g. ./project1
+Outcome:	Menu is displayed
+
+Test 2: Start the program by typing the program name with correct debug argument, e.g. ./project1 debug
+Outcome: Menu is displayed with information debug mode is on
+
+Test 3: Start the program by typing the program name with incorrect arguments, e.g. ./project1 debugmode
+Outcome: Error displayed, program closes
+
+Test 4: Select Add Record option and add the following information:
+ 	113344
+ 	John Smith
+ 	1111 Dole St.,
+ 	Honolulu, HI 96822
+Outcome:	Record gets added and confirmation is displayed to the user.
+
+
+
+Test 2:	Select the Print option
+Outcome:	Displays a message that the list is empty
