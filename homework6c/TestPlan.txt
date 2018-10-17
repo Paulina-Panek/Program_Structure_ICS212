@@ -36,8 +36,10 @@ Outcome: Only record 113344 added in test 3 is displayed
 Test 10: Select Quit Program option
 Outcome: Exits program
 
+
 Test 11: Start the program by typing the program name with incorrect arguments, e.g. ./project1 debugmode
-Outcome: Error displayed, program closes
+Outcome: Error displayed, program closes.
+
 
 Test 12: Start the program by typing the program name with correct debug argument, e.g. ./project1 debug
 Outcome: Menu is displayed with information debug mode is on
@@ -65,7 +67,7 @@ Test 17:Select Add Record option and add the following information:
  	Los Angeles, CA 11000
 Outcome:	Record gets added and confirmation is displayed to the user.  Displays the function called and parameters passed.
 
-Test 18:Select Add Record option and add the following information:
+Test 18: Select Add Record option and add the following information:
  	998855
  	Anita Tonk
  	960 1st St.,
@@ -82,28 +84,44 @@ Test 21: Select the Print All records option
 Outcome: Only record 113344 added in test 14 is displayed. Displays the function called and parameters passed.
 
 Test 22: Select Quit Program option
-Outcome: Exits program. Displays the function called and parameters passed
+Outcome: Exits program. Displays the function called and parameters passed.
 
-Test :
-Outcome:
 
-Test :
-Outcome:
+Test 23:	Start the program by typing the program name with no arguments, e.g. ./project1
+Outcome:	Menu is displayed
 
-Test :
-Outcome:
+Test 24: Select invalid option, e.g. 6
+Outcome:  Error is displayed. Program closes.
 
-Test :
-Outcome:
 
-Test :
-Outcome:
+Test 25:	Start the program by typing the program name with no arguments, e.g. ./project1
+Outcome:	Menu is displayed.
 
-Test :
-Outcome:
+Test 26: Select invalid option, e.g. k
+Outcome: Error is displayed. Program closes.
 
-Test :
-Outcome:
 
-Test :
-Outcome:
+Test 27:	Start the program by typing the program name with no arguments, e.g. ./project1
+Outcome:	Menu is displayed.
+
+Test 28: Select the Delete record option
+Outcome:	Displays a message that the list is empty
+
+Test 29: Select the Print All records option
+Outcome:	Displays a message that the list is empty
+
+Test 30:  Select Add Record option and add the following information:
+ 	998855
+ 	Anita Tonk
+ 	960 1st St.,
+ 	Grinnell, IA 41025
+Outcome:	Record gets added and confirmation is displayed to the user.
+
+Test 31: Select Delete record option with invalid account number, e.g. 999955
+Outcome: Displays message no such record exists
+
+Test 32 : Select Print single record option with invalid account number, e.g. 999955
+Outcome: Displays message no such record exists
+
+Test 33: Select Add Record option and attempt to add incorrect account number format, e.g. abcd
+Outcome: Error message displayed. Back to option selection menu.
