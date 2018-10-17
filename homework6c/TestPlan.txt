@@ -91,7 +91,7 @@ Test 23:	Start the program by typing the program name with no arguments, e.g. ./
 Outcome:	Menu is displayed
 
 Test 24: Select invalid option, e.g. 6
-Outcome:  Error is displayed. Program closes.
+Outcome: Error is displayed. Program closes.
 
 
 Test 25:	Start the program by typing the program name with no arguments, e.g. ./project1
@@ -125,3 +125,32 @@ Outcome: Displays message no such record exists
 
 Test 33: Select Add Record option and attempt to add incorrect account number format, e.g. abcd
 Outcome: Error message displayed. Back to option selection menu.
+
+
+Test 34:	Start the program in debug mode by typing the program name with debug argument, e.g. ./project1 debug
+Outcome:	Debug Menu is displayed.
+
+Test 35: Select the Delete record option
+Outcome:	Displays a message that the list is empty. Displays the function called and parameters passed.
+
+Test 36: Select the Print All records option
+Outcome:	Displays a message that the list is empty. Displays the function called and parameters passed.
+
+Test 37:  Select Add Record option and add the following information:
+ 	998855
+ 	Anita Tonk
+ 	960 1st St.,
+ 	Grinnell, IA 41025
+Outcome:	Record gets added and confirmation is displayed to the user. Displays the function called and parameters passed.
+
+Test 38: Select Delete record option with invalid account number, e.g. 999955
+Outcome: Displays message no such record exists. Displays the function called and parameters passed.
+
+Test 39 : Select Print single record option with invalid account number, e.g. 999955
+Outcome: Displays message no such record exists. Displays the function called and parameters passed.
+
+Test 40: Select Add Record option and attempt to add incorrect account number format, e.g. abcd
+Outcome: Error message displayed. Back to option selection menu. Displays the function called and parameters passed.
+
+Test 41: Select incorrect option, e.g. m.
+Outcome: Error is displayed. Program closes.
