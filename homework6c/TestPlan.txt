@@ -1,20 +1,107 @@
 Test 1:	Start the program by typing the program name with no arguments, e.g. ./project1
 Outcome:	Menu is displayed
 
-Test 2: Start the program by typing the program name with correct debug argument, e.g. ./project1 debug
-Outcome: Menu is displayed with information debug mode is on
+Test 2: Select the Print single record option
+Outcome:	Displays a message that the list is empty
 
-Test 3: Start the program by typing the program name with incorrect arguments, e.g. ./project1 debugmode
-Outcome: Error displayed, program closes
-
-Test 4: Select Add Record option and add the following information:
+Test 3: Select Add Record option and add the following information:
  	113344
  	John Smith
  	1111 Dole St.,
  	Honolulu, HI 96822
 Outcome:	Record gets added and confirmation is displayed to the user.
 
+Test 4: Select the Print single record option, enter accountno	113344
+Outcome:	Prints the record added in test 5
+
+Test 5: Select the Print All records option
+Outcome:	Prints the record added in test 5
+
+Test 6:Select Add Record option and add the following information:
+ 	998855
+ 	Johnathan Smithsonian Brown
+ 	1325 Main St.,
+ 	Los Angeles, CA 11000
+Outcome:	Record gets added and confirmation is displayed to the user.
+
+Test 7: Select Print All records option
+Outcome: Both records added in tests 5 and 7 are printed
+
+Test 8: Select Delete record option for account	998855
+Outcome: Record is deleted and confirmation is displayed
+
+Test 9: Select the Print All records option
+Outcome: Only record 113344 added in test 3 is displayed
+
+Test 10: Select Quit Program option
+Outcome: Exits program
+
+Test 11: Start the program by typing the program name with incorrect arguments, e.g. ./project1 debugmode
+Outcome: Error displayed, program closes
+
+Test 12: Start the program by typing the program name with correct debug argument, e.g. ./project1 debug
+Outcome: Menu is displayed with information debug mode is on
+
+Test 13: Select the Print single record option
+Outcome:	Displays a message that the list is empty. Prints information what function was called.
+
+Test 14: Select Add Record option and add the following information:
+ 	113344
+ 	John Smith
+ 	1111 Dole St.,
+ 	Honolulu, HI 96822
+Outcome:	Record gets added and confirmation is displayed to the user. Displays the function called and parameters passed.
+
+Test 15: Select the Print single record option, enter accountno	113344
+Outcome:	Prints the record added in test 14. Displays the function called and parameters passed.
 
 
-Test 2:	Select the Print option
-Outcome:	Displays a message that the list is empty
+
+
+
+Test 5: Select the Print All records option
+Outcome:	Prints the record added in test 5
+
+Test 6:Select Add Record option and add the following information:
+ 	998855
+ 	Johnathan Smithsonian Brown
+ 	1325 Main St.,
+ 	Los Angeles, CA 11000
+Outcome:	Record gets added and confirmation is displayed to the user.
+
+Test 7: Select Print All records option
+Outcome: Both records added in tests 5 and 7 are printed
+
+Test 8: Select Delete record option for account	998855
+Outcome: Record is deleted and confirmation is displayed
+
+Test 9: Select the Print All records option
+Outcome: Only record 113344 added in test 3 is displayed
+
+Test 10: Select Quit Program option
+Outcome: Exits program
+
+
+Test :
+Outcome:
+
+Test :
+Outcome:
+
+Test :
+Outcome:
+
+Test :
+Outcome:
+
+Test :
+Outcome:
+
+Test :
+Outcome:
+
+Test :
+Outcome:
+
+Test :
+Outcome:
