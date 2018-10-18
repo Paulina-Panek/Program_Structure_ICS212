@@ -151,6 +151,3 @@ Outcome: Displays message no such record exists. Displays the function called an
 
 Test 40: Select Add Record option and attempt to add incorrect account number format, e.g. abcd
 Outcome: Error message displayed. Back to option selection menu. Displays the function called and parameters passed.
-
-Test 41: Select incorrect option, e.g. m.
-Outcome: Error is displayed. Program closes.
