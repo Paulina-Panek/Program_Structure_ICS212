@@ -20,11 +20,6 @@
 #include <stdio.h>
 #include "record.h"
 
-int addRecord (struct record ** a, int b, char c[], char d[])
-{
-return(0);
-}
-
 int printRecord (struct record * e, int f)
 {
 return(0);

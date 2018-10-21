@@ -1,19 +1,19 @@
 /****************************************************************
 //  NAME:        Paulina Panek
 //
-//  HOMEWORK:    3b
+//  HOMEWORK:    project1
 //
 //  CLASS:       ICS 212
 //
 //  INSTRUCTOR:  Ravi Narayan
 //
-//  DATE:        September 22nd, 2018
+//  DATE:        October 25th, 2018
 //
 //  FILE:        record.h
 //
 //  DESCRIPTION:
 //  Header file that defines structure of entries in the database
-//  Also contains all the function prototypes
+//  Also contains all the function prototypes and needed libraries
 //  *************************************************************/
 
 #ifndef RECORD
@@ -28,6 +28,10 @@ typedef struct record
 } record;
 
 #endif
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int addRecord (struct record**, int, char [], char []);
 

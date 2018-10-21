@@ -24,8 +24,6 @@
 //  *************************************************************/
 
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "record.h"
 
 extern int debugmode;
