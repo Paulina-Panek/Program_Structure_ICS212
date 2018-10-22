@@ -1,13 +1,13 @@
 /*************************************************************
 // //  NAME:        Paulina Panek
 // //
-// //  HOMEWORK:    3b
+// //  HOMEWORK:    project1
 // //
 // //  CLASS:       ICS 212
 // //
 // //  INSTRUCTOR:  Ravi Narayan
 // //
-// //  DATE:        September 22nd, 2018
+// //  DATE:        October 25th, 2018
 // //
 // //  FILE:        main.c
 // //
@@ -18,8 +18,6 @@
 // //
 ***********************************************************/
 
-#include <stdio.h>
-#include <string.h>
 #include "record.h"
 
 int debugmode;

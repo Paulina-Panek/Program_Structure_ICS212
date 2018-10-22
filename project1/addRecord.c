@@ -28,10 +28,47 @@
 
 extern int debugmode;
 
-int addRecord (struct record ** start_ptr, int uaccoountno, char name[], char address[])
+int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char uaddress[])
 {
+    struct record *temp_prev, *temp_next, *new_list, *start;
+    int value;
 
+    start = *start_ptr;
 
+    if (start == NULL)
+    {
+        start = (struct record*)malloc(sizeof(struct record));
+        start->accountno = uaccountno;
+        strcpy(start->name, uname); 
+        strcpy(start->address, uaddress);
+        start->next = NULL;
+    }
+
+    else
+    {
+        new_list = (struct record*)malloc(sizeof(struct record));
+        new_list->accountno = uaccountno;
+        strcpy(new_list->name, uname); 
+        strcpy(new_list->address, uaddress);
+        
+        value = start->accountno;
+        temp_prev = start;
+        temp_next = temp_prev->next;
+
+        while (value < uaccountno)
+        {
+            temp_next = temp_prev->next;
+            value = temp_next->accountno;
+            if (temp_next == NULL)
+                value = uaccountno;
+            if (value < uaccountno)
+                temp_prev = temp_next;
+        }
+ 
+   temp_prev->next = new_list;
+   new_list->next = temp_next;
+   free(new_list); 
+    }
 
 return(0);
 }
