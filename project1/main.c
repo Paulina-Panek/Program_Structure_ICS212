@@ -81,12 +81,27 @@ while (running == 1)
 
             if (debugmode == 1)
             {
+                printf("\n");   
+                printf("***DEBUG START***\n");
+                printf("\n");       
+               
+                printf("Function Called:\t getaddress\n\n");
+                printf("Parameters Passed:\n");
+                printf("Address:\n%s\n", address);
+                printf("(Max) Size of address:\t%lu\n\n", sizeof address);
+ 
                 printf("Function Called:\t addRecord\n\n");
                 printf("Parameters Passed:\n");
+                printf("Address of start pointer:\t%p\n", &start);
                 printf("account number:\t%d\n", accountno);
                 printf("name:\t%s\n", name);
                 printf("address:\n");
                 printf("%s\n\n", address);
+                printf("\n");  
+ 
+                printf("***DEBUG END***\n");
+                printf("\n");        
+ 
            }
 
             addRecord(&start, accountno, name, address); 
