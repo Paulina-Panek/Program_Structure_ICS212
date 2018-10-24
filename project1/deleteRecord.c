@@ -78,8 +78,6 @@ record_num = 0;
             {
                     *start_ptr = temp_new;
                     free(temp_old);
-                    temp_old = temp_new;
-                    temp_new = temp_old->next;
            } 
 
                if (temp_new != NULL)
