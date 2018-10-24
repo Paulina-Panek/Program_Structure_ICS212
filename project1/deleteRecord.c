@@ -31,16 +31,18 @@ extern int debugmode;
 int deleteRecord (struct record** start_ptr, int uaccountno)
 {
     struct record * temp_old, *temp_new, *start;
-    int rtrn_val, value;
+    int rtrn_val, value, record_num;
 
 start = *start_ptr;
 rtrn_val = -1;
+record_num = 0;
 
     if (start != NULL)
     {
         temp_old = start;
-        temp_new = start;
+        temp_new = start->next;
         value = start->accountno;
+        record_num = 1;
 
         while (value < uaccountno)
         { 
@@ -59,21 +61,29 @@ rtrn_val = -1;
                     temp_old = temp_new;
                 }
             }
-             
+            record_num++;
         }
+   
         while (value == uaccountno)
         {
-            if (temp_new == temp_old)
+            rtrn_val = 0
+;
+            if (record_num>1)
             {
-                start = temp_new->next;
+                    temp_old->next = temp_new->next;
+                    free(temp_new);
+                    temp_new = temp_old->next;
             }
-            temp_old->next = temp_new->next;
-            free(temp_new);
-            rtrn_val = 0;
-            temp_new = temp_old->next;
+            if (record_num == 1)
+            {
+                    *start_ptr = temp_new;
+                    free(temp_old);
+                    temp_old = temp_new;
+                    temp_new = temp_old->next;
+           } 
 
-                if (temp_new != NULL)
-                    value = temp_new->accountno ;
+               if (temp_new != NULL)
+                    value = temp_new->accountno;
                 else
                     value = uaccountno + 1;
         }

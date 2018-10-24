@@ -136,9 +136,18 @@ while (running == 1)
 
             if (debugmode == 1)
             {
+                printf("\n");   
+                printf("***DEBUG START***\n");
+                printf("\n");       
+ 
                 printf("Function Called:\t printAllRecord\n\n");
-                printf("Parameters Passed:\tnone\n\n");
-           }
+                printf("Address of start pointer:\t%p\n", (void*)&start);
+                
+                printf("\n");  
+                printf("***DEBUG END***\n");
+                printf("\n");        
+ 
+            }
  
             printAllRecords(start);
             break;
@@ -151,9 +160,17 @@ while (running == 1)
 
             if (debugmode == 1)
             {
+                printf("\n");   
+                printf("***DEBUG START***\n");
+                printf("\n");       
+   
                 printf("Function Called:\t deleteRecord\n\n");
                 printf("Parameters Passed:\n");
                 printf("account number:\t%d\n\n", accountno);
+ 
+                printf("\n");  
+                printf("***DEBUG END***\n");
+                printf("\n");        
             }
 
             deleteRecord(&start, accountno);
@@ -164,8 +181,16 @@ while (running == 1)
  
             if (debugmode == 1)
             {
+                printf("\n");   
+                printf("***DEBUG START***\n");
+                printf("\n");       
+ 
                 printf("Function Called:\t none\n");
                 printf("Parameters Passed:\tnone\n\n");
+            
+                printf("\n");  
+                printf("***DEBUG END***\n");
+                printf("\n");         
             }
 
             printf("Exiting program.\n\n");
