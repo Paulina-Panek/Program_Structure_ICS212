@@ -31,15 +31,17 @@ extern int debugmode;
 int printRecord (struct record * start, int uaccountno)
 {
     struct record * temp_old, *temp_new;
-    int rtrn_val, value;
+    int rtrn_val, value, record_num;
 
     rtrn_val = -1;
+    record_num  = 0;
 
     if (start != NULL)
     {
         temp_old = start;
-        temp_new = start;
+        temp_new = start->next;
         value = start->accountno;
+        record_num = 1;
 
         while (value < uaccountno)
         { 
@@ -58,15 +60,26 @@ int printRecord (struct record * start, int uaccountno)
                     temp_old = temp_new;
                 }
             }
-             
+            record_num++;
         }
         while (value == uaccountno)
         {
             rtrn_val = 0;
-            
-            printf("Account No:\t%d\n", uaccountno);
+            if (record_num>1)
+            {
+            printf("Account No:\t%d\n", temp_new->accountno);
             printf("Name:\t%s", temp_new->name);
             printf("Address:\n%s\n", temp_new->address);
+            }
+            if (record_num == 1)
+            {
+            printf("Account No:\t%d\n", temp_old->accountno);
+            printf("Name:\t%s", temp_old->name);
+            printf("Address:\n%s\n", temp_old->address);
+            }
+
+            temp_old = temp_new;
+            temp_new = temp_old->next;
                 if ((temp_new != temp_old) && (temp_new != NULL))
                     value = temp_new->accountno ;
                 else
