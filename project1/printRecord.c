@@ -64,9 +64,9 @@ int printRecord (struct record * start, int uaccountno)
         {
             rtrn_val = 0;
             
-            printf("Account No:\t%d", uaccountno);
-            printf("Name:\t%s", temp_new->name);
-            printf("Address:\t%s", temp_new->address);
+            printf("Account No:\t%d\n", uaccountno);
+            printf("Name:\t%s\n", temp_new->name);
+            printf("Address:\t%s\n", temp_new->address);
                 if (temp_new != NULL)
                     value = temp_new->accountno ;
                 else
