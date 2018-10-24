@@ -34,11 +34,11 @@ int printRecord (struct record * start, int uaccountno)
     int rtrn_val, value;
 
     rtrn_val = -1;
-    printf("I'm inside function Start pointer:\t%p\n", (void*)start);
 
     if (start != NULL)
     {
         temp_old = start;
+        temp_new = start;
         value = start->accountno;
 
         while (value < uaccountno)
@@ -65,9 +65,9 @@ int printRecord (struct record * start, int uaccountno)
             rtrn_val = 0;
             
             printf("Account No:\t%d\n", uaccountno);
-            printf("Name:\t%s\n", temp_new->name);
-            printf("Address:\t%s\n", temp_new->address);
-                if (temp_new != NULL)
+            printf("Name:\t%s", temp_new->name);
+            printf("Address:\n%s\n", temp_new->address);
+                if ((temp_new != temp_old) && (temp_new != NULL))
                     value = temp_new->accountno ;
                 else
                     value = uaccountno + 1;

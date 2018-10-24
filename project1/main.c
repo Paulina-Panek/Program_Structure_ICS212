@@ -54,7 +54,7 @@ running = 1;
 
 while (running == 1)
 {
-    printf("Choose what you would like to do:\n");
+    printf("\n\nChoose what you would like to do:\n");
     printf("Option 1: Add a New Record\n");
     printf("Option 2: Print Record by Account Number\n");
     printf("Option 3: Print All Records\n");
