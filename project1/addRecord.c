@@ -55,22 +55,32 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
         value = start->accountno;
         temp_prev = start;
         temp_next = temp_prev->next;
-
-
+        
+        if (value >= uaccountno)
+        {
+            new_list->next = start;
+            start = new_list;
+        }
+        
+        else
+        {
         while (value < uaccountno)
         {
             temp_next = temp_prev->next;
-            value = temp_next->accountno;
             if (temp_next == NULL)
                 value = uaccountno;
+            else
+            {
+            value = temp_next->accountno;
+            
             if (value < uaccountno)
                 temp_prev = temp_next;
+            }
         }
- 
    temp_prev->next = new_list;
    new_list->next = temp_next;
    }
-
+   }
 return(0);
 }
 

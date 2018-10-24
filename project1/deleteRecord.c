@@ -39,6 +39,7 @@ rtrn_val = -1;
     if (start != NULL)
     {
         temp_old = start;
+        temp_new = start;
         value = start->accountno;
 
         while (value < uaccountno)
@@ -62,6 +63,10 @@ rtrn_val = -1;
         }
         while (value == uaccountno)
         {
+            if (temp_new == temp_old)
+            {
+                start = temp_new->next;
+            }
             temp_old->next = temp_new->next;
             free(temp_new);
             rtrn_val = 0;

@@ -16,11 +16,7 @@
 //
 //  Parameters:  
 //               start - pointer to the first record
-//               uaccountno - account number of the record to be printed
 //
-//  Return value: 
-//               -1 - no record  exists
-//                0 - record(s) have been printed
 //  *************************************************************/
 
 
@@ -28,8 +24,17 @@
 
 extern int debugmode;
 
-void printAllRecords (struct record * g)
+void printAllRecords (struct record * start)
 {
-}
+    struct record *temp;
+    temp = start;
 
+    while (temp != NULL)
+        {           
+            printf("Account No:\t%d\n", temp->accountno);
+            printf("Name:\t%s", temp->name);
+            printf("Address:\n%s\n", temp->address);
+            temp = temp->next;
+        }
+}
 
