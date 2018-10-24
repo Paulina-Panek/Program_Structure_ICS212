@@ -33,7 +33,7 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
     struct record *temp_prev, *temp_next, *new_list, *start;
     int value;
 
-    start = *start_ptr;
+   start = *start_ptr;
 
     if (start == NULL)
     {
@@ -42,6 +42,7 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
         strcpy(start->name, uname); 
         strcpy(start->address, uaddress);
         start->next = NULL;
+        *start_ptr = start;
     }
 
     else
@@ -55,6 +56,7 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
         temp_prev = start;
         temp_next = temp_prev->next;
 
+
         while (value < uaccountno)
         {
             temp_next = temp_prev->next;
@@ -67,8 +69,7 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
  
    temp_prev->next = new_list;
    new_list->next = temp_next;
-   free(new_list); 
-    }
+   }
 
 return(0);
 }

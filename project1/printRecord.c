@@ -33,7 +33,8 @@ int printRecord (struct record * start, int uaccountno)
     struct record * temp_old, *temp_new;
     int rtrn_val, value;
 
-rtrn_val = -1;
+    rtrn_val = -1;
+    printf("I'm inside function Start pointer:\t%p\n", (void*)start);
 
     if (start != NULL)
     {

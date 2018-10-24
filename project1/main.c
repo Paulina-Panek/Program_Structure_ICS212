@@ -92,22 +92,19 @@ while (running == 1)
  
                 printf("Function Called:\t addRecord\n\n");
                 printf("Parameters Passed:\n");
-                printf("Address of start pointer:\t%p\n", &start);
-                printf("account number:\t%d\n", accountno);
-                printf("name:\t%s\n", name);
-                printf("address:\n");
+                printf("Address of start pointer:\t%p\n", (void*)&start);
+                printf("Account number:\t%d\n", accountno);
+                printf("Name:\t%s", name);
+                printf("Address:\n");
                 printf("%s\n\n", address);
                 printf("\n");  
  
                 printf("***DEBUG END***\n");
-                printf("\n");        
- 
+                printf("\n");         
            }
 
-            addRecord(&start, accountno, name, address); 
-            
-            printf("\n");
-            break;
+           addRecord(&start, accountno, name, address); 
+           break;
 
         case 2:
             printf("You chose Option 2\n"); 
@@ -117,11 +114,19 @@ while (running == 1)
             
             if (debugmode == 1)
             {
+                printf("\n");   
+                printf("***DEBUG START***\n");
+                printf("\n");       
+ 
                 printf("Function Called:\t printRecord\n\n");
                 printf("Parameters Passed:\n");
-                printf("account number:\t%d\n\n", accountno);
-            }
-
+                printf("Start pointer:\t%p\n", (void*)start);
+                printf("Account number:\t%d\n\n", accountno);
+              
+                printf("\n");  
+                printf("***DEBUG END***\n");
+                printf("\n");        
+           }
            
             printRecord(start, accountno);
             break;
