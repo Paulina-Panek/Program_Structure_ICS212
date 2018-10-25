@@ -43,7 +43,7 @@ int deleteRecord (struct record**, int );
 
 void getaddress (char[], int);
 
-int readfile( struct record accarray[], char filename[] );
+int readfile( struct record **, char [] );
 
 int writefile( struct record*, char []);
 

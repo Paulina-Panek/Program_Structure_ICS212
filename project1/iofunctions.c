@@ -33,12 +33,14 @@
 // 
 //  ****************************************************************/ 
 
-/*****
-int readfile( struct record accarray[], char filename[])
+int readfile( struct record **start_ptr, char filename[])
 {
     FILE * inf;
     int i, value, eof_check, account_temp;
+    struct record *start;
    
+    start = *start_ptr;
+
     i = 0;
     eof_check = 0;
 
@@ -46,8 +48,7 @@ int readfile( struct record accarray[], char filename[])
 
     if (inf == NULL)
     {
-        fclose(inf);
-        *numcust = i;    
+        fclose(inf);  
         value = 1;    
     }
     else
@@ -61,21 +62,20 @@ int readfile( struct record accarray[], char filename[])
             }
             else
             {
-                accarray[i].accountno = account_temp;
-                fgets(accarray[i].name, 20, inf);
-                fgets(accarray[i].address, 80, inf);
+                start->accountno = account_temp;
+                fgets(start->name, 20, inf);
+                fgets(start->address, 80, inf);
             }
         }
 
-    fclose(inf);
-    *numcust = i;    
+    fclose(inf);   
     value = 0;
     } 
 
 return(value);
 
 }
-*****/
+
 /***************************************************************
 //  Function name: writefile
 // 
@@ -112,11 +112,13 @@ int writefile( struct record *start, char filename[] )
             fprintf(outf,"%d\n", ptr->accountno);
             fprintf(outf, "%s", ptr->name);
             fprintf(outf, "%s", ptr->address);
-            fprintf(outf, "\n");
+            fprintf(outf,"%d", '\30');
+            fprintf(outf, "\n\n");
 
             ptr = ptr->next;
         }
-
+        fprintf(outf, "%d", '\28');
+ 
         fclose(outf);
         value = 0;
     }

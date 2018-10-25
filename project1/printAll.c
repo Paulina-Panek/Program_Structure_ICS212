@@ -33,7 +33,7 @@ void printAllRecords (struct record * start)
         {           
             printf("Account No:\t%d\n", temp->accountno);
             printf("Name:\t%s", temp->name);
-            printf("Address:\n%s\n", temp->address);
+            printf("Address:\n%s\n\n", temp->address);
             temp = temp->next;
         }
 }

@@ -52,6 +52,8 @@ running = 1;
          debugmode = 0;
     }
 
+readfile(&start, "database.txt");
+
 while (running == 1)
 {
     printf("\n\nChoose what you would like to do:\n");
