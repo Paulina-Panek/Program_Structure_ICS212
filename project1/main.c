@@ -203,5 +203,7 @@ while (running == 1)
     }
 }
 
+writefile(start, "database.txt");
+
 return(0);
 }

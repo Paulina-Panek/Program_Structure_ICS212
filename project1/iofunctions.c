@@ -16,10 +16,7 @@
 //  do not contain terminal I/O functions. 
 //  *************************************************************/
 
-#include <string.h>
-#include <stdio.h>
 #include "record.h"
-#include "prototypes.h"
 
 /***************************************************************
 //  Function name: readfile
@@ -29,9 +26,6 @@
 // 
 //   Parameters:    accarray(struct record) : array of struct records
 //                             
-//                  numcust (int*) : pointer to number of struct records in the
-//                                   array
-//
 //                  filename(char) : name of the file read from
 //                  
 //   Return values:  0 : success
@@ -39,8 +33,8 @@
 // 
 //  ****************************************************************/ 
 
-
-int readfile( struct record accarray[], int* numcust, char filename[])
+/*****
+int readfile( struct record accarray[], char filename[])
 {
     FILE * inf;
     int i, value, eof_check, account_temp;
@@ -81,7 +75,7 @@ int readfile( struct record accarray[], int* numcust, char filename[])
 return(value);
 
 }
-
+*****/
 /***************************************************************
 //  Function name: writefile
 // 
@@ -90,9 +84,6 @@ return(value);
 // 
 //   Parameters:    accarray(struct record) : array of struct records
 //                             
-//                  numcust (int) : number of struct records in the
-//                                   array
-//
 //                  filename(char) : name of the file to be written
 //                  
 //   Return values:  0 : success
@@ -100,29 +91,33 @@ return(value);
 // 
 //  ****************************************************************/ 
 
-int writefile( struct record accarray[], int numcust, char filename[] )
+int writefile( struct record *start, char filename[] )
 {
     FILE * outf;
-    int i, value;
+    int value;
+    struct record * ptr;
 
+    ptr = start;
     outf = fopen(filename, "w+");
 
     if (outf == NULL)
     {
         value = 1;
     }
+
     else
     {
-        for (i =0; i < numcust; i++)
+        while (ptr != NULL)
         {
-            fprintf(outf,"%d\n", accarray[i].accountno);
-            fprintf(outf, "%s", accarray[i].name);
-            fprintf(outf, "%s", accarray[i].address);
+            fprintf(outf,"%d\n", ptr->accountno);
+            fprintf(outf, "%s", ptr->name);
+            fprintf(outf, "%s", ptr->address);
             fprintf(outf, "\n");
+
+            ptr = ptr->next;
         }
 
         fclose(outf);
-        numcust = i;
         value = 0;
     }
 
