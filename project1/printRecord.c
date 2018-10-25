@@ -66,33 +66,44 @@ int printRecord (struct record * start, int uaccountno)
         while (value == uaccountno)
         {
             rtrn_val = 0;
+
             if (record_num > 1)
             {
-            printf("Account No:\t%d\n", temp_new->accountno);
-            printf("Name:\t%s", temp_new->name);
-            printf("Address:\n%s\n", temp_new->address);
-            }
-            if (record_num == 1)
-            {
-            printf("Account No:\t%d\n", temp_old->accountno);
-            printf("Name:\t%s", temp_old->name);
-            printf("Address:\n%s\n", temp_old->address);
+                printf("Account No:\t%d\n", temp_new->accountno);
+                printf("Name:\t%s", temp_new->name);
+                printf("Address:\n%s\n", temp_new->address);
+                
+                temp_old = temp_new;
+
+                if (temp_old != NULL)
+                    temp_new = temp_old->next;
+        
+                if (temp_new != NULL)
+                    value = temp_new->accountno;
+
+                if (temp_new == NULL)
+                    value = uaccountno + 1;
             }
 
+            if (record_num == 1)
+            {
+                printf("Account No:\t%d\n", temp_old->accountno);
+                printf("Name:\t%s", temp_old->name);
+                printf("Address:\n%s\n", temp_old->address);
+       
             temp_old = temp_new;
+        
+            if (temp_new != NULL)
+                value = temp_new->accountno;
+
             if (temp_old != NULL)
-            {
                 temp_new = temp_old->next;
-                    if ((temp_new != temp_old) && (temp_new != NULL))
-                        value = temp_new->accountno ;
-                    else
-                        value = uaccountno + 1;
-            } 
-            else
-            {
+
+            if (temp_old == NULL)
                 value = uaccountno + 1;
             }
-        }
+
+       }
 
     }
 return(rtrn_val);
