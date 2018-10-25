@@ -66,25 +66,40 @@ record_num = 0;
    
         while (value == uaccountno)
         {
-            rtrn_val = 0
-;
+            rtrn_val = 0;
+
             if (record_num>1)
             {
                     temp_old->next = temp_new->next;
                     free(temp_new);
-                    temp_new = temp_old->next;
+
+                    if (temp_old != NULL)
+                        temp_new = temp_old->next;
+        
+                    if (temp_new != NULL)
+                         value = temp_new->accountno;
+
+                    else
+                        value = uaccountno + 1;
             }
+
             if (record_num == 1)
             {
                     *start_ptr = temp_new;
                     free(temp_old);
-           } 
+                    temp_old = temp_new;
+                    if (temp_new != NULL)
+                        value = temp_new->accountno;
 
-               if (temp_new != NULL)
-                    value = temp_new->accountno;
-                else
-                    value = uaccountno + 1;
-        }
+                    if (temp_old != NULL)
+                        temp_new = temp_old->next;
+                    
+                    if (temp_old == NULL)
+                        value = uaccountno + 1;
+
+            } 
+
+       }
 
     }
 return(rtrn_val);
