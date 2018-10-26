@@ -39,7 +39,7 @@ extern int debugmode;
 int readfile(struct record ** start_ptr, char filename[])
 {
     char name[25], address[80], buffer;
-    int account_temp, accountno, eof_check, size, val;
+    int account_temp, accountno, eof_check, size, val, remaining;
     
     FILE *inf = fopen(filename, "a+");
                 
@@ -65,8 +65,15 @@ int readfile(struct record ** start_ptr, char filename[])
             {   
                 address[size] = buffer;
             }
-            val = 0;
-
+           
+             val = 0;
+            
+            for ((remaining = 79 - (size+1)); remaining != 80; remaining++)
+            { 
+                printf("Remaining =%d\n", remaining); 
+                address[remaining] = ' ';
+            }
+            
             if (debugmode == 1)
             { 
             printf("***DEBUG (inside readfile) START***\n");
