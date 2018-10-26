@@ -33,47 +33,42 @@
 // 
 //  ****************************************************************/ 
 
-int readfile( struct record **start_ptr, char filename[])
+int readfile(struct record ** pstart, char filename[])
 {
-    FILE * inf;
-    int i, value, eof_check, account_temp;
-    struct record *start;
-   
-    start = *start_ptr;
 
-    i = 0;
-    eof_check = 0;
+	char name[25], address[80], buffer;
+	int account_temp, accountno, eof_check, size;
+	FILE *inf = fopen(filename, "r");
 
-    inf = fopen(filename, "r");
+  eof_check = 0;
 
-    if (inf == NULL)
-    {
-        fclose(inf);  
-        value = 1;    
-    }
-    else
-    {
-        for (i = 0; (feof(inf) == 0 && eof_check == 0); i++)
-        { 
+	if(inf == NULL)
+	{
+		return 0;
+	}
+
+	while(eof_check != 1)
+	{
             if (fscanf(inf, "%d\n", &account_temp) != 1)
             {
                 eof_check = 1;
-                i--;
+        
             }
             else
             {
-                start->accountno = account_temp;
-                fgets(start->name, 20, inf);
-                fgets(start->address, 80, inf);
+                accountno = account_temp;
+                fgets(name, 25, inf);
+                for (size = 0;  ((buffer = (fgetc(inf))) != '$') && (size < 80); size++) 
+                {   
+                    address[size] = buffer;
+                }
+		addRecord(pstart, accountno, name, address);
             }
         }
 
-    fclose(inf);   
-    value = 0;
-    } 
+	fclose(inf);
 
-return(value);
-
+	return 1;
 }
 
 /***************************************************************
@@ -112,13 +107,11 @@ int writefile( struct record *start, char filename[] )
             fprintf(outf,"%d\n", ptr->accountno);
             fprintf(outf, "%s", ptr->name);
             fprintf(outf, "%s", ptr->address);
-            fprintf(outf,"%d", '\30');
-            fprintf(outf, "\n\n");
+            fprintf(outf, "$\n");
 
             ptr = ptr->next;
         }
-        fprintf(outf, "%d", '\28');
- 
+        
         fclose(outf);
         value = 0;
     }
