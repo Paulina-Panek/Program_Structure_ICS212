@@ -74,6 +74,7 @@ running = 1;
         printf("\n");       
  
         printf("Function Called:\t readfile\n\n");
+        printf("Parameters Passed:\n");
         printf("Address of start pointer:\t%p\n", (void*)&start);
         printf("Hardcoded txt file:\tdatabase.txt\n");
               

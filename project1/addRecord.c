@@ -33,7 +33,7 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
     struct record *temp_prev, *temp_next, *new_list, *start;
     int value;
 
-   start = *start_ptr;
+   start = *start_ptr; 
 
     if (start == NULL)
     {

@@ -41,7 +41,7 @@ int readfile(struct record ** start_ptr, char filename[])
     char name[25], address[80], buffer;
     int account_temp, accountno, eof_check, size, val;
     
-    FILE *inf = fopen(filename, "r");
+    FILE *inf = fopen(filename, "a+");
                 
     eof_check = 0;
 
@@ -113,7 +113,7 @@ int writefile( struct record *start, char filename[] )
     struct record * ptr;
 
     ptr = start;
-    outf = fopen(filename, "w+");
+    outf = fopen(filename, "w");
 
     if (outf == NULL)
     {
@@ -127,7 +127,7 @@ int writefile( struct record *start, char filename[] )
             fprintf(outf,"%d\n", ptr->accountno);
             fprintf(outf, "%s", ptr->name);
             fprintf(outf, "%s", ptr->address);
-            fprintf(outf, "$\n");
+            fprintf(outf, "$\n\n\n\n");
 
             ptr = ptr->next;
         }
