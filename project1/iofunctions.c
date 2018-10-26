@@ -18,13 +18,16 @@
 
 #include "record.h"
 
+extern int debugmode;
+
 /***************************************************************
 //  Function name: readfile
 // 
 //   DESCRIPTION:   Reads struct record data from a file and stores
 //                  them as an array of struct record
 // 
-//   Parameters:    accarray(struct record) : array of struct records
+//   Parameters:    start(struct record**) : pointer to the pointer
+//                                       of the first struct record
 //                             
 //                  filename(char) : name of the file read from
 //                  
@@ -33,42 +36,59 @@
 // 
 //  ****************************************************************/ 
 
-int readfile(struct record ** pstart, char filename[])
+int readfile(struct record ** start_ptr, char filename[])
 {
+    char name[25], address[80], buffer;
+    int account_temp, accountno, eof_check, size, val;
+    
+    FILE *inf = fopen(filename, "r");
+                
+    eof_check = 0;
 
-	char name[25], address[80], buffer;
-	int account_temp, accountno, eof_check, size;
-	FILE *inf = fopen(filename, "r");
+    if(inf == NULL)
+    {
+        val = 0;
+    }
 
-  eof_check = 0;
-
-	if(inf == NULL)
-	{
-		return 0;
-	}
-
-	while(eof_check != 1)
-	{
-            if (fscanf(inf, "%d\n", &account_temp) != 1)
-            {
-                eof_check = 1;
-        
-            }
-            else
-            {
-                accountno = account_temp;
-                fgets(name, 25, inf);
-                for (size = 0;  ((buffer = (fgetc(inf))) != '$') && (size < 80); size++) 
-                {   
-                    address[size] = buffer;
-                }
-		addRecord(pstart, accountno, name, address);
-            }
+    while(eof_check != 1)
+    {
+        if (fscanf(inf, "%d\n", &account_temp) != 1)
+        {
+            eof_check = 1;
         }
+        else
+        {
+            accountno = account_temp;
+            fgets(name, 25, inf);
+           
+            for (size = 0;  ((buffer = (fgetc(inf))) != '$') && (size < 80); size++) 
+            {   
+                address[size] = buffer;
+            }
+            val = 0;
 
-	fclose(inf);
+            if (debugmode == 1)
+            { 
+            printf("***DEBUG (inside readfile) START***\n");
+            printf("\n"); 
+            printf("Function Called:\t addRecord\n\n");
+            printf("Parameters Passed:\n");
+            printf("Address of start pointer:\t%p\n", (void*)start_ptr);
+            printf("Account number:\t%d\n", accountno);
+            printf("Name:\t%s", name);
+            printf("Address:\n");
+            printf("%s\n\n", address);
+            printf("***DEBUG (inside readfile) END***\n");
+            }
 
-	return 1;
+            addRecord(start_ptr, accountno, name, address);
+
+        }
+    }
+
+fclose(inf);
+
+return(val);
 }
 
 /***************************************************************
@@ -77,7 +97,7 @@ int readfile(struct record ** pstart, char filename[])
 //   DESCRIPTION:   Writes or updates a file with struct record data
 //                  from an array
 // 
-//   Parameters:    accarray(struct record) : array of struct records
+//   Parameters:    start(struct record) : pointer to the first struct record
 //                             
 //                  filename(char) : name of the file to be written
 //                  

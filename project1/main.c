@@ -22,6 +22,22 @@
 
 int debugmode;
 
+/***************************************************************
+//      Function name: main
+// 
+// //   DESCRIPTION:   Reads struct record data from a file, allows user
+// //                  to add/delete records, updates the file. Contains
+// //                  debug print statements
+// // 
+// //   Parameters:    argc : number of arguments when calling program
+// //                             
+// //                  argv : sets debug mode on and off
+// //                  
+// //   Return values:  0 : success
+// //                   1 : error
+// // 
+// //  ****************************************************************/ 
+
 int  main(int argc, char *argv[])
 {
 
@@ -51,7 +67,19 @@ running = 1;
     {
          debugmode = 0;
     }
-
+ 
+    if (debugmode == 1)
+    {
+        printf("***DEBUG START***\n");
+        printf("\n");       
+ 
+        printf("Function Called:\t readfile\n\n");
+        printf("Address of start pointer:\t%p\n", (void*)&start);
+        printf("Hardcoded txt file:\tdatabase.txt\n");
+              
+        printf("\n");        
+        printf("***DEBUG END****\n");
+    }
 readfile(&start, "database.txt");
 
 while (running == 1)
@@ -71,6 +99,7 @@ while (running == 1)
             printf("You chose Option 1\n");    
             
             printf("Please enter the account number of the new record:\n");
+            printf("ONLY ACCEPTS INTEGERS 0-9\n");
             scanf("%d", &accountno);
            
             printf("Please enter the name of the new record:\n");
@@ -204,6 +233,18 @@ while (running == 1)
             break;
     }
 }
+    if (debugmode == 1)
+    {
+        printf("***DEBUG START***\n");
+        printf("\n");       
+ 
+        printf("Function Called:\t writefile\n\n");
+        printf("Start pointer:\t%p\n", (void*)start);
+        printf("Hardcoded txt file:\tdatabase.txt\n");
+                
+        printf("\n");        
+        printf("***DEBUG END****\n");
+    }
 
 writefile(start, "database.txt");
 
