@@ -107,6 +107,5 @@ int printRecord (struct record * start, int uaccountno)
 
     }
 return(rtrn_val);
-
 }
 

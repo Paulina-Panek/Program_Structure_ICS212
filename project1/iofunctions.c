@@ -70,32 +70,29 @@ int readfile(struct record ** start_ptr, char filename[])
             
             for ((remaining = 79 - (size+1)); remaining != 80; remaining++)
             { 
-                printf("Remaining =%d\n", remaining); 
                 address[remaining] = ' ';
             }
             
             if (debugmode == 1)
             { 
-            printf("***DEBUG (inside readfile) START***\n");
-            printf("\n"); 
-            printf("Function Called:\t addRecord\n\n");
-            printf("Parameters Passed:\n");
-            printf("Address of start pointer:\t%p\n", (void*)start_ptr);
-            printf("Account number:\t%d\n", accountno);
-            printf("Name:\t%s", name);
-            printf("Address:\n");
-            printf("%s\n\n", address);
-            printf("***DEBUG (inside readfile) END***\n");
+                printf("***DEBUG (inside readfile) START***\n");
+                printf("\n"); 
+                printf("Function Called:\t addRecord\n\n");
+                printf("Parameters Passed:\n");
+                printf("Address of start pointer:\t%p\n", (void*)start_ptr);
+                printf("Account number:\t%d\n", accountno);
+                printf("Name:\t%s", name);
+                printf("Address:\n");
+                printf("%s\n\n", address);
+                printf("***DEBUG (inside readfile) END***\n");
             }
 
             addRecord(start_ptr, accountno, name, address);
 
         }
     }
-
-fclose(inf);
-
-return(val);
+    fclose(inf);
+    return(val);
 }
 
 /***************************************************************
@@ -144,6 +141,5 @@ int writefile( struct record *start, char filename[] )
     }
 
 return(value);
-
 }
 

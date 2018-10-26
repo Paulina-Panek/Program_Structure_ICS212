@@ -33,9 +33,9 @@ int deleteRecord (struct record** start_ptr, int uaccountno)
     struct record * temp_old, *temp_new, *start;
     int rtrn_val, value, record_num;
 
-start = *start_ptr;
-rtrn_val = -1;
-record_num = 0;
+    start = *start_ptr;
+    rtrn_val = -1;
+    record_num = 0;
 
     if (start != NULL)
     {

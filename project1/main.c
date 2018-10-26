@@ -41,12 +41,12 @@ int debugmode;
 int  main(int argc, char *argv[])
 {
 
-int result, choice, running, accountno;
-char keyword[5], name[25], address[80];
-struct record * start;
+    int result, choice, running, accountno;
+    char keyword[5], name[25], address[80];
+    struct record * start;
 
-start = NULL;
-running = 1;
+    start = NULL;
+    running = 1;
 
     if (argc > 1)
     {
@@ -81,16 +81,17 @@ running = 1;
         printf("\n");        
         printf("***DEBUG END****\n");
     }
-readfile(&start, "database.txt");
 
-while (running == 1)
-{
-    printf("\n\nChoose what you would like to do:\n");
-    printf("Option 1: Add a New Record\n");
-    printf("Option 2: Print Record by Account Number\n");
-    printf("Option 3: Print All Records\n");
-    printf("Option 4: Delete Record by Account Number\n");
-    printf("Option 5: Quit Program\n");
+    readfile(&start, "database.txt");
+
+    while (running == 1)
+    {
+        printf("\n\nChoose what you would like to do:\n");
+        printf("Option 1: Add a New Record\n");
+        printf("Option 2: Print Record by Account Number\n");
+        printf("Option 3: Print All Records\n");
+        printf("Option 4: Delete Record by Account Number\n");
+        printf("Option 5: Quit Program\n");
 
     scanf("%d", &choice);
 
@@ -100,7 +101,7 @@ while (running == 1)
             printf("You chose Option 1\n");    
             
             printf("Please enter the account number of the new record:\n");
-            printf("ONLY ACCEPTS INTEGERS 0-9\n");
+            printf("ONLY INTEGERS 0-9 ALLOWED, NO CHARACTERS\n");
             scanf("%d", &accountno);
            
             printf("Please enter the name of the new record:\n");
@@ -136,6 +137,7 @@ while (running == 1)
            }
 
            addRecord(&start, accountno, name, address); 
+
            break;
 
         case 2:

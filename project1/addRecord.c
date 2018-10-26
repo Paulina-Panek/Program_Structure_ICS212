@@ -23,7 +23,6 @@
 //                0 - record(s) have been deleted
 //  *************************************************************/
 
-
 #include "record.h"
 
 extern int debugmode;
@@ -64,22 +63,22 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
         
         else
         {
-        while (value < uaccountno)
-        {
-            temp_next = temp_prev->next;
-            if (temp_next == NULL)
-                value = uaccountno;
-            else
+            while (value < uaccountno)
             {
-            value = temp_next->accountno;
+                temp_next = temp_prev->next;
+                if (temp_next == NULL)
+                    value = uaccountno;
+                else
+                {  
+                    value = temp_next->accountno;
             
-            if (value < uaccountno)
-                temp_prev = temp_next;
+                    if (value < uaccountno)
+                        temp_prev = temp_next;
+                }
             }
+            temp_prev->next = new_list;
+            new_list->next = temp_next;
         }
-   temp_prev->next = new_list;
-   new_list->next = temp_next;
-   }
    }
 return(0);
 }

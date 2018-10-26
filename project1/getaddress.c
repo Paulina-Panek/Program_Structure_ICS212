@@ -21,7 +21,6 @@
 //
 //  *************************************************************/
 
-
 #include <stdio.h>
 #include "record.h"
 
@@ -38,6 +37,5 @@ void getaddress (char address[], int address_size)
     }
     
     address[counter] = '\0';
-
 }
 
