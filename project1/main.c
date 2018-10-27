@@ -41,7 +41,7 @@ int debugmode;
 int  main(int argc, char *argv[])
 {
 
-    int result, choice, running, accountno, rtrn, rtrnd, rtrnpr;
+    int result, choice, running, accountno, rtrn, rtrnd, rtrnpr, main_rtrn;
     char keyword[5], name[25], address[80];
     struct record * start;
 
@@ -56,18 +56,22 @@ int  main(int argc, char *argv[])
         if ((argc < 3) && (result == 0))
         {
              debugmode = 1;
+             main_rtrn = 0;
         }
 
         else 
             {
                 printf("Wrong program call.\n");
+                main_rtrn = -1;
             }   
     }
     else
     {
          debugmode = 0;
+         main_rtrn = 0;
     }
- 
+if (main_rtrn == 0)
+{
     if (debugmode == 1)
     {
         printf("***DEBUG START***\n");
@@ -259,6 +263,6 @@ int  main(int argc, char *argv[])
     }
 
 writefile(start, "database.txt");
-
-return(0);
+}
+return(main_rtrn);
 }
