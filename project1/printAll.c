@@ -35,5 +35,7 @@ void printAllRecords (struct record * start)
             printf("Address:\n%s\n\n", temp->address);
             temp = temp->next;
         }
+    if (temp == NULL)
+        printf("\nNo Records in Database\n");
 }
 

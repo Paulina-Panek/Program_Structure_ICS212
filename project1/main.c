@@ -41,7 +41,7 @@ int debugmode;
 int  main(int argc, char *argv[])
 {
 
-    int result, choice, running, accountno;
+    int result, choice, running, accountno, rtrn, rtrnd, rtrnpr;
     char keyword[5], name[25], address[80];
     struct record * start;
 
@@ -136,8 +136,11 @@ int  main(int argc, char *argv[])
                 printf("\n");         
            }
 
-           addRecord(&start, accountno, name, address); 
-
+           rtrn = addRecord(&start, accountno, name, address); 
+           if (rtrn == 0)
+               printf("\nRecord added successfully\n");
+           if (rtrn == -1)
+               printf("\nRecord NOT added.\n");
            break;
 
         case 2:
@@ -162,7 +165,9 @@ int  main(int argc, char *argv[])
                 printf("\n");        
            }
            
-            printRecord(start, accountno);
+            rtrnpr = printRecord(start, accountno);
+            if (rtrnpr == -1)
+                printf("No Record Found.\n");
             break;
         
         case 3:
@@ -207,7 +212,11 @@ int  main(int argc, char *argv[])
                 printf("\n");        
             }
 
-            deleteRecord(&start, accountno);
+            rtrnd = deleteRecord(&start, accountno);
+            if (rtrnd == 0)
+                printf("\nRecord Deleted Successfully.\n");
+            if (rtrnd == -1)
+                printf("\nNo Record Found\n");
             break;
 
         case 5:

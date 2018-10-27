@@ -19,8 +19,8 @@
 //               uaccountno - account number of the record to be deleted
 //
 //  Return value: 
-//               -1 - no record has been deleted
-//                0 - record(s) have been deleted
+//                0 - record has been added
+//                -1 - record not added
 //  *************************************************************/
 
 #include "record.h"
@@ -30,8 +30,9 @@ extern int debugmode;
 int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char uaddress[])
 {
     struct record *temp_prev, *temp_next, *new_list, *start;
-    int value;
+    int value, rtrn;
 
+   rtrn = -1;
    start = *start_ptr; 
 
     if (start == NULL)
@@ -42,6 +43,7 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
         strcpy(start->address, uaddress);
         start->next = NULL;
         *start_ptr = start;
+        rtrn = 0;
     }
 
     else
@@ -78,9 +80,10 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
             }
             temp_prev->next = new_list;
             new_list->next = temp_next;
+            rtrn = 0;
         }
    }
-return(0);
+return(rtrn);
 }
 
 
