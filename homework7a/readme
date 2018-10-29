@@ -1,0 +1,14 @@
+The road stripe painters have formed a union. Each painter will only paint a section of 2 miles or shorter of stripes
+on the road and charge $150/mile for the service. If the road is longer than 2 miles, the painter does his/her job on
+the first 2 miles. Then, he/she divides the rest of the road and subcontracts two other painters assigned to each of
+the divided section, charging $100 for hiring them. Each of the hired painters will do the same thing as the original painter did.
+
+That is, he/she will basically paints at most 2 miles and charge $150/mile. If the road is longer than 2 miles, he/she
+charges $100 and hires two other workers who will be assigned to equally divided sections of the rest, and so on.
+
+Write a recursive function which is used to calculate the total cost. The prototype for the function must be:
+
+int costofpainting(double length);
+
+Write driver code to test the function with the appropriate test cases. The driver obtains the input (can be hard-coded)
+and prints the output. The output must be self-explanatory; it must tell what value you used for input and what the result was acquired.
