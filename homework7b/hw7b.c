@@ -20,7 +20,16 @@
 
 int main()
 {
+    unsigned char data[4000];
+    int size;
 
+    size = sizeof(data[0]);
+
+    readfile(data, &size, "image1.gif");
+
+    printinfor(data);
+
+    writefile(data, size, "result1.gif");
 
     return(0);
 }

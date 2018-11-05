@@ -22,10 +22,8 @@ int printinfor(unsigned char data[])
     int i;
 
     printf("Width: \n");
-    for (i = 7; i <= 6; i--)
-    {
-        printf("%u", data[i]);
-    }
+    printf("%u", data[7]);
+    printf("%u", data[6]);
     printf("\n\n");
 
     printf("Height: \n");
@@ -36,49 +34,33 @@ int printinfor(unsigned char data[])
     printf("\n\n");
 
     printf("Color 1: \n");
-    for (i = 13; i <= 15; i++)
-    {
-        printf("R: %x\n", data[i]);
-        printf("G: %x\n", data[i]);
-        printf("B: %x\n", data[i]);
+    printf("R: %x\n", data[13]);
+    printf("G: %x\n", data[14]);
+    printf("B: %x\n", data[15]);
 
-    }
     printf("\n\n");
 
  
     printf("Color 2: \n");
-    for (i = 16; i <= 18; i++)
-    {
-        printf("R: %x\n", data[i]);
-        printf("G: %x\n", data[i]);
-        printf("B: %x\n", data[i]);
+    printf("R: %x\n", data[16]);
+    printf("G: %x\n", data[17]);
+    printf("B: %x\n", data[18]);
 
-    }
     printf("\n\n");
 
     printf("Colori 3: \n");
-    for (i = 19; i <= 21; i++)
-    {
-        printf("R: %x\n", data[i]);
-        printf("G: %x\n", data[i]);
-        printf("B: %x\n", data[i]);
+    printf("R: %x\n", data[19]);
+    printf("G: %x\n", data[20]);
+    printf("B: %x\n", data[21]);
 
-    }
     printf("\n\n");
 
     printf("Colori 4: \n");
-    for (i = 22; i <= 24; i++)
-    {
-        printf("R: %x\n", data[i]);
-        printf("G: %x\n", data[i]);
-        printf("B: %x\n", data[i]);
+    printf("R: %x\n", data[22]);
+    printf("G: %x\n", data[23]);
+    printf("B: %x\n", data[24]);
 
-    }
     printf("\n\n");
-
-
-
-
 
     return(0);
 }
