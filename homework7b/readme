@@ -1,0 +1,7 @@
+Write code to apply the following items to each of the files given below:
+
+Read a gif file, and store the data into an unsigned char array (unsigned char [4000]) and the data size in an int variable.
+Print the width and height, and color table data in the format described below.
+Modify the color table based on the rules listed below.
+Do #2 again to show the changes
+Write the data to a new file.
