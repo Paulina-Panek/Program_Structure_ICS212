@@ -48,14 +48,14 @@ int printinfor(unsigned char data[])
 
     printf("\n\n");
 
-    printf("Colori 3: \n");
+    printf("Color 3: \n");
     printf("R: %x\n", data[19]);
     printf("G: %x\n", data[20]);
     printf("B: %x\n", data[21]);
 
     printf("\n\n");
 
-    printf("Colori 4: \n");
+    printf("Color 4: \n");
     printf("R: %x\n", data[22]);
     printf("G: %x\n", data[23]);
     printf("B: %x\n", data[24]);

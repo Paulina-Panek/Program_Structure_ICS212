@@ -22,3 +22,5 @@ int printinfor(unsigned char[]);
 int readfile(unsigned char[], int*, char[]);
 
 int writefile(unsigned char[], int, char[]);
+
+void changecolor(unsigned char[]);
