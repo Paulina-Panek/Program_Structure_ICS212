@@ -15,6 +15,17 @@
 //  Flips colors of .gif according to specified rules
 //  *************************************************************/
 
+#include "header.h"
+
+/*****************************************************************
+//  Function name: changecolor
+// 
+//  DESCRIPTION:   Flips colors according to defined guidelines
+// 
+//  Parameters:    data (unsigned char[]) : contains all .gif data
+//
+//  ****************************************************************/
+
 void changecolor(unsigned char data1[])
 {
     int check, i;

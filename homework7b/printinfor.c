@@ -17,6 +17,17 @@
 
 #include "header.h"
 
+/*****************************************************************
+//  Function name: printinfor
+// 
+//  DESCRIPTION:   Prints width, length & color data about .gif
+// 
+//  Parameters:    data (unsigned char[]) : contains .gif data
+//
+//  Return values: always 0
+//
+//  ****************************************************************/
+
 int printinfor(unsigned char data[])
 {
     int i;

@@ -18,6 +18,16 @@
 
 #include "header.h"
 
+/*****************************************************************
+//  Function name: main
+// 
+//  DESCRIPTION:   Driver that 1) reads a gif 2) prints gif header
+//                 3) changes colors of gif 4) prints gif header 
+//                 after change 5) writes a new gif
+// 
+//  Return values: always 0
+//  ****************************************************************/
+
 int main()
 {
     unsigned char data1[4000], data2[4000], data3[4000];
