@@ -21,7 +21,7 @@
 #include <stdlib.h>
 
 int getInt();
-int isDivisible(int, int);
+void isDivisible(int, int, bool &);
 
 int main()
 /***************************************************************
@@ -37,15 +37,17 @@ int main()
 ****************************************************************/
 {  
     int user_int, i, index, factor;
+    bool isIt;
+    bool& check = isIt;
 
-    printf("This program calulates the factors of an integer provided by the user.\n");
+    cout << "This program calulates the factors of an integer provided by the user.";
 
     user_int = getInt();
-    printf("You entered: %d\n\n", user_int);
+    cout << "You entered:" << user_int;
 
     index = 1;
 
-    printf("%10s%10s\n", "Index", "Factor");
+    cout << "%10s%10s\n" <<  "Index" << "Factor";
 
     for (i = 1; i <= user_int; i++)
     {             
@@ -53,7 +55,7 @@ int main()
                 
         if (factor == 1)
         {
-            printf("%10d%10d\n", index, i);
+            cout << "%10d%10d\n" <<  index << i;
             index++;
         }
     }
@@ -79,7 +81,7 @@ int getInt()
     char input[12];
     int user_int;
 
-    printf("Please enter an integer greater than 0:\n");
+    cout << "Please enter an integer greater than 0:";
     fgets(input, 12, stdin);
 
     /* Loops below ensure correct error message is displayed even
@@ -87,7 +89,7 @@ int getInt()
 
     while (input[0] == '0')
     {
-        printf("You entered 0. Please enter a POSITIVE integer.\n");
+        cout << "You entered 0. Please enter a POSITIVE integer.";
         fgets(input, 12, stdin);
     }
 
@@ -102,12 +104,12 @@ int getInt()
     { 
         if  (user_int == 0)
         {
-             printf("You entered character(s). Please enter an integer.\n");
+             cout << "You entered character(s). Please enter an integer.";
         }
   
         else if (user_int <= 0)
         {  
-            printf("Please enter a POSITIVE integer to check its factors:\n");   
+            cout << "Please enter a POSITIVE integer to check its factors:\";   
         }
      
         fgets(input, 12, stdin);
@@ -118,7 +120,7 @@ int getInt()
  
         while (input[0] == '0')
         {
-            printf("You entered 0. Please enter a POSITIVE integer.\n");
+            cout << "You entered 0. Please enter a POSITIVE integer.";
             fgets(input, 12, stdin);
         }
 
@@ -129,7 +131,7 @@ return(user_int);
 }
 
 
-int isDivisible(int number, int PotentialFactor)
+int isDivisible(int number, int PotentialFactor, bool& check)
 /***************************************************************
 //  Function name: isDivisible(number, PotentialFactor)
 //  //
