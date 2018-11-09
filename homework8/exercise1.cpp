@@ -16,8 +16,8 @@
 //    by user interface written in C++
 //  *************************************************************/
 
-
 #include <iostream>
+using namespace std;
 #include <stdlib.h>
 
 int getInt();
@@ -36,14 +36,14 @@ int main()
 //  //                
 ****************************************************************/
 {  
-    int user_int, i, index, factor;
-    bool isIt;
-    bool& check = isIt;
+    int user_int, i, index;
+    bool factor;
+    bool& check = factor;
 
-    cout << "This program calulates the factors of an integer provided by the user.";
+    cout << "This program calulates the factors of an integer provided by the user.\n";
 
     user_int = getInt();
-    cout << "You entered:" << user_int;
+    cout << "You entered:\n" << user_int;
 
     index = 1;
 
@@ -51,9 +51,10 @@ int main()
 
     for (i = 1; i <= user_int; i++)
     {             
-        factor = isDivisible(user_int, i);
+        isDivisible(user_int, i, check);
+        factor = check;
                 
-        if (factor == 1)
+        if (factor == true)
         {
             cout << "%10d%10d\n" <<  index << i;
             index++;
@@ -81,16 +82,16 @@ int getInt()
     char input[12];
     int user_int;
 
-    cout << "Please enter an integer greater than 0:";
-    fgets(input, 12, stdin);
+    cout << "Please enter an integer greater than 0:\n";
+    cin >> input;
 
     /* Loops below ensure correct error message is displayed even
     // if incorrect input is provided multiple times in a row */
 
     while (input[0] == '0')
     {
-        cout << "You entered 0. Please enter a POSITIVE integer.";
-        fgets(input, 12, stdin);
+        cout << "You entered 0. Please enter a POSITIVE integer.\n";
+        cin >> input;
     }
 
     user_int = atoi(input);
@@ -104,15 +105,15 @@ int getInt()
     { 
         if  (user_int == 0)
         {
-             cout << "You entered character(s). Please enter an integer.";
+             cout << "You entered character(s). Please enter an integer.\n";
         }
   
         else if (user_int <= 0)
         {  
-            cout << "Please enter a POSITIVE integer to check its factors:\";   
+            cout << "Please enter a POSITIVE integer to check its factors:\n";   
         }
      
-        fgets(input, 12, stdin);
+        cin >> input;
    
     /* Once user enters new input, below loop will first evaluate if it was 0
     // Then, again use atoi and go through the big loop to ensure new input 
@@ -120,8 +121,8 @@ int getInt()
  
         while (input[0] == '0')
         {
-            cout << "You entered 0. Please enter a POSITIVE integer.";
-            fgets(input, 12, stdin);
+            cout << "You entered 0. Please enter a POSITIVE integer.\n";
+            cin >> input;
         }
 
         user_int = atoi(input);
@@ -130,8 +131,7 @@ int getInt()
 return(user_int);  
 }
 
-
-int isDivisible(int number, int PotentialFactor, bool& check)
+void isDivisible(int number, int PotentialFactor, bool& check)
 /***************************************************************
 //  Function name: isDivisible(number, PotentialFactor)
 //  //
@@ -141,18 +141,8 @@ int isDivisible(int number, int PotentialFactor, bool& check)
 //  //  Parameters:    number : looking for factors of
 //  //                 PotentialFactor : checked if is a factor              
 //  //
-//  //  Return values: 0 : <PotentialFactor> is NOT a factor
-//  //                 1 : <PotentialFactor> is a factor
-//  //
 ****************************************************************/
 
 { 
-    int result;
- 
-    if (number % PotentialFactor == 0)
-        result = 1;
-    else
-        result = 0;                 
-
-    return(result);
+    check = (number % PotentialFactor == 0);
 } 
