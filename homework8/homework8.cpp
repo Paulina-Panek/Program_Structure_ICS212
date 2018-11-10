@@ -19,6 +19,7 @@
 #include <iostream>
 using namespace std;
 #include <stdlib.h>
+#include <iomanip>
 
 int getInt();
 void isDivisible(int, int, bool &);
@@ -56,7 +57,10 @@ int main()
                 
         if (factor == true)
         {
-            cout << index << "\t" << i << "\n";
+            std::cout.width(5);
+            std::cout << std::right << index  << "\t";
+            std::cout.width(6);
+            std::cout << std::right << i << "\n";
             index++;
         }
     }
