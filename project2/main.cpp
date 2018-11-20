@@ -19,7 +19,7 @@
 ***********************************************************/
 
 #include "record.h"
-#define debugmode 1
+
 /***************************************************************
 //      Function name: main
 // 
@@ -83,12 +83,11 @@ if (main_rtrn == 0)
             scanf("%d", &accountno);
            
             cout << "Please enter the name of the new record:\n";
-            getchar();
-            fgets(name, sizeof name, stdin;
+            std::cin.getline(name, 25);
 
             cout << "Please enter the address of the new record:\n";
             cout << "Type $ after you are done and hit enter.\n";
-            getaddress(address, sizeof address);           
+            std::cin.getline(address, 80, '$');        
 
             if (debugmode == 1)
             {

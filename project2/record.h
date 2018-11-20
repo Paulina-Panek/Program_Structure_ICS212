@@ -34,6 +34,7 @@ typedef struct record
 #include <iostream>
 using namespace std;
 #include "llist.h"
+#define debugmode 1
 
 void getaddress (char[], int);
 

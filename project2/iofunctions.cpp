@@ -1,13 +1,13 @@
 /***************************************************************
 //  NAME:        Paulina Panek
 //
-//  HOMEWORK:    5
+//  HOMEWORK:    Project 2
 //
 //  CLASS:       ICS 212
 //
 //  INSTRUCTOR:  Ravi Narayan
 //
-//  DATE:        October 6th, 2018
+//  DATE:        November 25th, 2018
 //
 //  FILE:        iofunctions.c
 //
@@ -17,8 +17,6 @@
 //  *************************************************************/
 
 #include "record.h"
-
-extern int debugmode;
 
 /***************************************************************
 //  Function name: readfile
@@ -75,16 +73,16 @@ int readfile(struct record ** start_ptr, char filename[])
             
             if (debugmode == 1)
             { 
-                printf("***DEBUG (inside readfile) START***\n");
-                printf("\n"); 
-                printf("Function Called:\t addRecord\n\n");
-                printf("Parameters Passed:\n");
-                printf("Address of start pointer:\t%p\n", (void*)start_ptr);
-                printf("Account number:\t%d\n", accountno);
-                printf("Name:\t%s", name);
-                printf("Address:\n");
-                printf("%s\n\n", address);
-                printf("***DEBUG (inside readfile) END***\n");
+                std::cout << ("***DEBUG (inside readfile) START***\n";
+                std::cout << "\n"; 
+                std::cout << "Function Called:\t addRecord\n\n";
+                std::cout << "Parameters Passed:\n";
+                std::cout << "Address of start pointer:\t%p\n" << (void*)start_ptr;
+                std::cout << "Account number:\t%d\n" << accountno;
+                std::cout << "Name:\t%s" << name;
+                std::cout << "Address:\n";
+                std::cout << "\n\n" << address;
+                std::cout << "***DEBUG (inside readfile) END***\n";
             }
 
             addRecord(start_ptr, accountno, name, address);
