@@ -40,5 +40,3 @@ void getaddress (char[], int);
 int readfile( struct record **, char [] );
 
 int writefile( struct record*, char []);
-
-
