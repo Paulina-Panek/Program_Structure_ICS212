@@ -2,7 +2,7 @@
 //  NAME:        Paulina Panek
 //
 //  HOMEWORK:    project2
-//
+////
 //  CLASS:       ICS 212
 //
 //  INSTRUCTOR:  Ravi Narayan
@@ -12,15 +12,115 @@
 //  FILE:        llist.cpp
 //
 //  DESCRIPTION:
-//  Contains function definitions.
+//  Contains function definitions for class llist.
 //  *************************************************************/
+
+/***************************************************************
+//  Function name: readfile
+// 
+//   DESCRIPTION:   Reads struct record data from a file and stores
+//                  them as an array of struct record
+//                  
+//   Return values:  0 : success
+//                   1 : error opening the file
+// 
+//  ****************************************************************/ 
 
 int llist :: readfile()
 {
+
+    char name[25], address[80], buffer;
+    int account_temp, accountno, eof_check, size, val, remaining;
+    
+    FILE *inf = fopen(filename, "a+");
+                
+    eof_check = 0;
+
+    if(inf == NULL)
+    {
+        val = 0;
+    }
+
+    while(eof_check != 1)
+    {
+        if (fscanf(inf, "%d\n", &account_temp) != 1)
+        {
+            eof_check = 1;
+        }
+        else
+        {
+            accountno = account_temp;
+            fgets(name, 25, inf);
+           
+            for (size = 0;  ((buffer = (fgetc(inf))) != '$') && (size < 80); size++) 
+            {   
+                address[size] = buffer;
+            }
+           
+             val = 0;
+            
+             for ((remaining = 79 - (size+1)); remaining != 80; remaining++)
+            { 
+                address[remaining] = ' ';
+            }
+            
+            if (debugmode == 1)
+            { 
+                std::cout << ("***DEBUG (inside readfile) START***\n";
+                std::cout << "\n"; 
+                std::cout << "Function Called:\t addRecord\n\n";
+                std::cout << "Parameters Passed:\n";
+                std::cout << "Address of start pointer:\t%p\n" << (void*)start_ptr;
+                std::cout << "Account number:\t%d\n" << accountno;
+                std::cout << "Name:\t%s" << name;
+                std::cout << "Address:\n";
+                std::cout << "\n\n" << address;
+                std::cout << "***DEBUG (inside readfile) END***\n";
+            }
+
+            addRecord(accountno, name, address);
+
+        }
+    }
+    fclose(inf);
+    return(val);
 }
+
+/***************************************************************
+//  Function name: writefile
+// 
+//   DESCRIPTION:   Writes or updates a file with struct record data
+//                  from an array
+//                  
+//   Return values:  0 : success
+//                   1 : error opening the file
+// 
+//  ****************************************************************/
 
 void llist :: writefile()
 {
+//* FIGURE OUT WHERE THE START IS (ptr) *//
+
+    int value;
+    struct record * ptr;
+
+    ofstream.myfile;
+    myfile.open("database.txt", ios::trunc);
+
+    if (myfile.is_open() == true)
+    {
+        while (ptr != NULL)
+        {
+            myfile << ptr->accountno;
+            myfile << ptr->name;
+            myfile << ptr->address;
+            myfile << "$\n\n\n\n";
+
+            ptr = ptr->next;
+        }
+        
+        myfile.close();
+    }
 }
 
 record* llist :: reverse(record*)

@@ -32,6 +32,7 @@ typedef struct record
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
+#include <fstream>
 using namespace std;
 #include "llist.h"
 #define debugmode 1
