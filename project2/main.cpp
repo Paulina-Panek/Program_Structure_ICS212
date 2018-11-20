@@ -42,6 +42,8 @@ int  main()
     start = NULL;
     running = 1;
 
+    llist begin;
+
 if (main_rtrn == 0)
 {
     if (debugmode == 1)
@@ -112,7 +114,7 @@ if (main_rtrn == 0)
                 cout << "\n";         
            }
 
-           rtrn = addRecord(&start, accountno, name, address); 
+           rtrn = begin.addRecord(accountno, name, address); 
            if (rtrn == 0)
                cout << "\nRecord added successfully\n";
            if (rtrn == -1)
@@ -141,7 +143,7 @@ if (main_rtrn == 0)
                 cout << "\n";        
            }
            
-            rtrnpr = printRecord(start, accountno);
+            rtrnpr = begin.printRecord(accountno);
             if (rtrnpr == -1)
                 cout << "No Record Found.\n";
             break;
@@ -188,7 +190,7 @@ if (main_rtrn == 0)
                 cout << "\n";        
             }
 
-            rtrnd = deleteRecord(&start, accountno);
+            rtrnd = begin.deleteRecord(accountno);
             if (rtrnd == 0)
                 cout << "\nRecord Deleted Successfully.\n";
             if (rtrnd == -1)
