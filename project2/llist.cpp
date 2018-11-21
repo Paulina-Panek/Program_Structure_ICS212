@@ -15,6 +15,8 @@
 //  Contains function definitions for class llist.
 //  *************************************************************/
 
+#include "record.h"
+
 /***************************************************************
 //  Function name: readfile
 // 
@@ -31,12 +33,13 @@ int llist :: readfile()
 
     char name[25], address[80], buffer;
     int account_temp, accountno, eof_check, size, val, remaining;
-    
-    FILE *inf = fopen(filename, "a+");
+  
+    ifstream myfile;
+    myfile.open("database.txt");
                 
     eof_check = 0;
 
-    if(inf == NULL)
+    if (myfile.is_open() == false)
     {
         val = 0;
     }
@@ -66,7 +69,7 @@ int llist :: readfile()
             
             if (debugmode == 1)
             { 
-                std::cout << ("***DEBUG (inside readfile) START***\n";
+                std::cout << "***DEBUG (inside readfile) START***\n";
                 std::cout << "\n"; 
                 std::cout << "Function Called:\t addRecord\n\n";
                 std::cout << "Parameters Passed:\n";
@@ -82,7 +85,7 @@ int llist :: readfile()
 
         }
     }
-    fclose(inf);
+    myfile.close();
     return(val);
 }
 
@@ -101,10 +104,9 @@ void llist :: writefile()
 {
 //* FIGURE OUT WHERE THE START IS (ptr) *//
 
-    int value;
     struct record * ptr;
 
-    ofstream.myfile;
+    ofstream myfile;
     myfile.open("database.txt", ios::trunc);
 
     if (myfile.is_open() == true)
@@ -125,6 +127,8 @@ void llist :: writefile()
 
 record* llist :: reverse(record*)
 {
+
+return(0);
 }
 
 void llist :: cleanup()
@@ -133,13 +137,13 @@ void llist :: cleanup()
 
 int llist :: addRecord (int, char[], char[])
 {
-int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char uaddress[])
-{
+//*int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char uaddress[])**/
+
     struct record *temp_prev, *temp_next, *new_list, *start;
     int value, rtrn;
 
-   rtrn = -1;
-   start = *start_ptr; 
+    rtrn = -1;
+    start = *start_ptr; 
 
     if (start == NULL)
     {
@@ -183,12 +187,18 @@ int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char ua
                     if (value < uaccountno)
                         temp_prev = temp_next;
                 }
+            }
+            temp_prev->next = new_list;
+            new_list->next = temp_next;
+            rtrn = 0;
+        }
 }
-
+return(rtrn);
+}
 int llist :: printRecord (int)
 {
-int printRecord (struct record * start, int uaccountno)
-{
+//**int printRecord (struct record * start, int uaccountno)**//
+
     struct record * temp_old, *temp_new;
     int rtrn_val, value, record_num;
 
@@ -228,21 +238,48 @@ int printRecord (struct record * start, int uaccountno)
 
             if (record_num > 1)
             {
-                printf("Account No:\t%d\n", temp_new->accountno);
-                printf("Name:\t%s", temp_new->name);
-                printf("Address:\n%s\n", temp_new->address);
+                std::cout << "Account No:\t\n" << temp_new->accountno;
+                std::cout << "Name:\t" << temp_new->name;
+                std::cout << "Address:\n\n" << temp_new->address;
                 
                 temp_old = temp_new;
 
                 if (temp_old != NULL)
                     temp_new = temp_old->next;
+            if (temp_new != NULL)
+                    value = temp_new->accountno;
+
+                if (temp_new == NULL)
+                    value = uaccountno + 1;
+            }
+
+            if (record_num == 1)
+            {
+                printf("Account No:\t%d\n", temp_old->accountno);
+                printf("Name:\t%s", temp_old->name);
+                printf("Address:\n%s\n", temp_old->address);
+       
+            temp_old = temp_new;
         
+            if (temp_new != NULL)
+                value = temp_new->accountno;
+
+            if (temp_old != NULL)
+                temp_new = temp_old->next;
+
+            if (temp_old == NULL)
+                value = uaccountno + 1;
+            }
+
+       }
+
+    }
+return(rtrn_val);      
 }
 
 int llist :: deleteRecord(int)
 {
-int deleteRecord (struct record** start_ptr, int uaccountno)
-{
+//**int deleteRecord (struct record** start_ptr, int uaccountno) **//
     struct record * temp_old, *temp_new, *start;
     int rtrn_val, value, record_num;
 
@@ -291,6 +328,30 @@ int deleteRecord (struct record** start_ptr, int uaccountno)
         
                     if (temp_new != NULL)
                          value = temp_new->accountno;
+                    else
+                        value = uaccountno + 1;
+            }
+
+            if (record_num == 1)
+            {
+                    *start_ptr = temp_new;
+                    free(temp_old);
+                    temp_old = temp_new;
+                    if (temp_new != NULL)
+                        value = temp_new->accountno;
+
+                    if (temp_old != NULL)
+                        temp_new = temp_old->next;
+                    
+                    if (temp_old == NULL)
+                        value = uaccountno + 1;
+
+            } 
+
+       }
+
+    }
+return(rtrn_val);
 }
 
 void llist :: reverse()
