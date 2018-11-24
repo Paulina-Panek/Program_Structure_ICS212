@@ -122,10 +122,22 @@ void llist :: writefile()
     }
 }
 
-record* llist :: reverse(record*)
+record* llist :: reverse(record* mylist)
 {
+    struct record * ptr;
 
-return(0);
+    if ((mylist->next) == NULL)
+    {
+        start = mylist;
+    }
+    else
+    {
+        reverse(mylist->next);
+        ptr = mylist->next;
+        ptr->next = mylist;
+        mylist->next = NULL;
+    }
+    return(mylist);
 }
 
 void llist :: cleanup()
@@ -376,4 +388,33 @@ return(rtrn_val);
 
 void llist :: reverse()
 {
+    if (start == NULL)
+    {
+        cout << "No records in the database" << endl;
+    }
+    else
+    {
+        reverse (start);
+    }
+}
+
+ostream & operator << (ostream &out, const llist &mylist)
+{
+    struct record * ptr;
+
+    ptr = mylist.start;
+    
+    if (ptr != NULL)
+    {
+        while (ptr != NULL)
+        {
+            cout << ptr->accountno << endl;
+            cout << ptr->name << endl;
+            cout << ptr->address << endl;
+
+            ptr = ptr->next;
+         }
+
+    }
+    return(out);
 }

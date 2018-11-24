@@ -152,14 +152,14 @@ if (main_rtrn == 0)
                 cout << "***DEBUG START***\n";
                 cout << "\n";       
  
-                cout << "Function Called:\t printAllRecord\n\n";
+                cout << "Function Called:\t cout" << endl;
                 
                 cout << "\n";  
                 cout << "***DEBUG END***\n";
                 cout << "\n";        
  
             }
-            
+            cout << begin;
             break;
 
         case 4:

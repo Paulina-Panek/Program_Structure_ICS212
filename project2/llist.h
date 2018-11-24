@@ -25,7 +25,6 @@ class llist
     int deleteRecord(int);
     void reverse();
 
-    llist& operator = (const llist&);
     friend ostream & operator << (ostream&, const llist&);
 };
 
