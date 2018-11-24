@@ -66,7 +66,8 @@ if (main_rtrn == 0)
         cout << "Option 2: Print Record by Account Number\n";
         cout << "Option 3: Print All Records\n";
         cout << "Option 4: Delete Record by Account Number\n";
-        cout << "Option 5: Quit Program\n";
+        cout << "Option 5: Reverse List" << endl;
+        cout << "Option 6: Quit Program\n";
 
     cin >> choice;
 
@@ -158,15 +159,15 @@ if (main_rtrn == 0)
                 cout << "\n";        
  
             }
- 
-            //*printAll replace*//
+            
             break;
 
         case 4:
             cout << "You chose Option 4\n";
             cout << "Please enter the account number to be deleted:\n";
             
-            scanf("%d", &accountno);
+            cin >> accountno;
+            cin.getline(garbage, 100);
 
             if (debugmode == 1)
             {
@@ -176,7 +177,7 @@ if (main_rtrn == 0)
    
                 cout << "Function Called:\t deleteRecord\n\n";
                 cout << "Parameters Passed:\n";
-                cout << "account number:\t\n\n" <<  accountno;
+                cout << "account number:\t" <<  accountno << endl;
  
                 cout << "\n";  
                 cout << "***DEBUG END***\n";
@@ -191,7 +192,13 @@ if (main_rtrn == 0)
             break;
 
         case 5:
-            cout << "You chose Option 5\n"; 
+            cout << "You chose Option 5" << endl;
+            
+            begin.reverse(); 
+            break;
+
+        case 6:
+            cout << "You chose Option 6" << endl; 
  
             if (debugmode == 1)
             {
@@ -199,15 +206,15 @@ if (main_rtrn == 0)
                 cout << "***DEBUG START***\n";
                 cout << "\n";       
  
-                cout << "Function Called:\t none\n";
-                cout << "Parameters Passed:\tnone\n\n";
+                cout << "Function Called:\t none" << endl;
+                cout << "Parameters Passed:\tnone" << endl;
             
                 cout << "\n";  
                 cout << "***DEBUG END***\n";
                 cout << "\n";         
             }
 
-            cout << "Exiting program." << endl
+            cout << "Exiting program." << endl;
             running = 0;
             break;
 

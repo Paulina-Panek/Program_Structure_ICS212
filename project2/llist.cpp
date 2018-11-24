@@ -101,18 +101,19 @@ void llist :: writefile()
 {
 
     struct record * ptr;
-
     ofstream myfile;
-    myfile.open("database.txt", ios::trunc);
+    ptr = start;
+
+    myfile.open(filename);
 
     if (myfile.is_open() == true)
     {
         while (ptr != NULL)
         {
-            myfile << ptr->accountno;
-            myfile << ptr->name;
-            myfile << ptr->address;
-            myfile << "$\n\n\n\n";
+            myfile << ptr->accountno << endl;
+            myfile << ptr->name << endl;
+            myfile << ptr->address << endl;
+            myfile << "$\n" << endl;
 
             ptr = ptr->next;
         }
