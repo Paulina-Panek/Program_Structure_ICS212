@@ -19,6 +19,8 @@
 ***********************************************************/
 
 #include "record.h"
+#include "llist.h"
+using namespace std;
 
 /***************************************************************
 //      Function name: main
@@ -34,15 +36,13 @@
 
 int  main()
 {
-
     int choice, running, accountno, rtrn, rtrnd, rtrnpr, main_rtrn;
     char name[25], address[80];
-    struct record * start;
-
-    start = NULL;
-    running = 1;
 
     llist begin;
+
+    running = 1;
+    main_rtrn = 0;
 
 if (main_rtrn == 0)
 {
@@ -53,14 +53,11 @@ if (main_rtrn == 0)
  
         cout << "Function Called:\t readfile\n\n";
         cout << "Parameters Passed:\n";
-        cout << "Address of start pointer:\t%p\n" << (void*)&start;
         cout << "Hardcoded txt file:\tdatabase.txt\n";
       
         cout << "\n";        
         cout << "***DEBUG END****\n";
     }
-
-    readfile(&start, "database.txt");
 
     while (running == 1)
     {
@@ -71,7 +68,7 @@ if (main_rtrn == 0)
         cout << "Option 4: Delete Record by Account Number\n";
         cout << "Option 5: Quit Program\n";
 
-    scanf("%d", &choice);
+    cin >> choice;
 
     switch (choice)
     {
@@ -102,7 +99,6 @@ if (main_rtrn == 0)
  
                 cout << "Function Called:\t addRecord\n\n";
                 cout << "Parameters Passed:\n";
-                cout << "Address of start pointer:\t%p\n" << (void*)&start;
                 cout << "Account number:\t%d\n" << accountno;
                 cout << "Name:\t%s" << name;
                 cout << "Address:\n";
@@ -134,7 +130,6 @@ if (main_rtrn == 0)
  
                 cout << "Function Called:\t printRecord\n\n";
                 cout << "Parameters Passed:\n";
-                cout << "Start pointer:\t%p\n" << (void*)start;
                 cout << "Account number:\t%d\n\n" << accountno;
               
                 cout << "\n";  
@@ -157,7 +152,6 @@ if (main_rtrn == 0)
                 cout << "\n";       
  
                 cout << "Function Called:\t printAllRecord\n\n";
-                cout << "Address of start pointer:\t%p\n" << (void*)&start;
                 
                 cout << "\n";  
                 cout << "***DEBUG END***\n";
@@ -222,20 +216,6 @@ if (main_rtrn == 0)
             break;
     }
 }
-    if (debugmode == 1)
-    {
-        cout << "***DEBUG START***\n";
-        cout << "\n";       
- 
-        cout << "Function Called:\t writefile\n\n";
-        cout << "Start pointer:\t%p\n" << (void*)start;
-        cout << "Hardcoded txt file:\tdatabase.txt\n";
-                
-        cout << "\n";        
-        cout << "***DEBUG END****\n";
-    }
-
-writefile(start, "database.txt");
 }
 return(main_rtrn);
 }

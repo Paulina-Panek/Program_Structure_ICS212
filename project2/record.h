@@ -27,18 +27,11 @@ typedef struct record
     struct record*     next;
 } record;
 
-#endif
-
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
 #include <fstream>
 using namespace std;
-#include "llist.h"
 #define debugmode 1
 
-void getaddress (char[], int);
-
-int readfile( struct record **, char [] );
-
-int writefile( struct record*, char []);
+#endif

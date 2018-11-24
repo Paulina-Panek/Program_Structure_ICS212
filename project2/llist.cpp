@@ -16,6 +16,7 @@
 //  *************************************************************/
 
 #include "record.h"
+#include "llist.h"
 
 /***************************************************************
 //  Function name: readfile
@@ -32,11 +33,11 @@ int llist :: readfile()
 {
 
     char name[25], address[80], buffer;
-    int account_temp, accountno, eof_check, size, val, remaining;
+    int accountno, eof_check, val, counter;
   
     ifstream myfile;
-    myfile.open("database.txt");
-                
+    myfile.open(filename);
+
     eof_check = 0;
 
     if (myfile.is_open() == false)
@@ -44,36 +45,33 @@ int llist :: readfile()
         val = 0;
     }
 
-    while(eof_check != 1)
+    while(myfile.getline(name, 25))
     {
-        if (fscanf(inf, "%d\n", &account_temp) != 1)
+        counter = 0; 
+
+        myfile >> accountno;
+        myfile.get(buffer);
+
+        while (counter < 80)
         {
-            eof_check = 1;
+            myfile.get(address[counter]);
+ 
+            if (address[counter] == '\n' && address[counter - 1] == '\n')
+            {
+                address[counter] = 0;
+                counter = 80;
+            }
+            counter++;
         }
-        else
-        {
-            accountno = account_temp;
-            fgets(name, 25, inf);
-           
-            for (size = 0;  ((buffer = (fgetc(inf))) != '$') && (size < 80); size++) 
-            {   
-                address[size] = buffer;
-            }
-           
-             val = 0;
-            
-             for ((remaining = 79 - (size+1)); remaining != 80; remaining++)
-            { 
-                address[remaining] = ' ';
-            }
-            
+       
+        eof_check ++;
+          
             if (debugmode == 1)
             { 
                 std::cout << "***DEBUG (inside readfile) START***\n";
                 std::cout << "\n"; 
                 std::cout << "Function Called:\t addRecord\n\n";
                 std::cout << "Parameters Passed:\n";
-                std::cout << "Address of start pointer:\t%p\n" << (void*)start_ptr;
                 std::cout << "Account number:\t%d\n" << accountno;
                 std::cout << "Name:\t%s" << name;
                 std::cout << "Address:\n";
@@ -84,7 +82,6 @@ int llist :: readfile()
             addRecord(accountno, name, address);
 
         }
-    }
     myfile.close();
     return(val);
 }
@@ -102,7 +99,6 @@ int llist :: readfile()
 
 void llist :: writefile()
 {
-//* FIGURE OUT WHERE THE START IS (ptr) *//
 
     struct record * ptr;
 
@@ -133,32 +129,60 @@ return(0);
 
 void llist :: cleanup()
 {
+    struct record * next, *prev;
+    
+    next = start;
+
+    while (next != NULL)
+    {
+        prev = next;
+        next = next->next;
+        delete(prev); 
+    }
 }
 
-int llist :: addRecord (int, char[], char[])
+llist :: llist()
 {
-//*int addRecord (struct record ** start_ptr, int uaccountno, char uname[], char uaddress[])**/
+    start = NULL;
 
-    struct record *temp_prev, *temp_next, *new_list, *start;
+    strcpy(filename, "database.txt");
+    readfile();
+}
+
+llist :: llist(char input[])
+{
+    start = NULL;
+    strcpy(filename, input);
+    readfile();
+}
+
+llist :: ~llist()
+{
+    writefile();
+    cleanup();
+}
+
+int llist :: addRecord (int uaccountno, char uname[], char uaddress[])
+{
+    struct record *temp_prev, *temp_next, *new_list;
     int value, rtrn;
 
     rtrn = -1;
-    start = *start_ptr; 
 
     if (start == NULL)
     {
-        start = (struct record*)malloc(sizeof(struct record));
-        start->accountno = uaccountno;
-        strcpy(start->name, uname); 
-        strcpy(start->address, uaddress);
-        start->next = NULL;
-        *start_ptr = start;
+        temp_prev = new record;
+        temp_prev->accountno = uaccountno;
+        strcpy(temp_prev->name, uname); 
+        strcpy(temp_prev->address, uaddress);
+        temp_prev->next = NULL;
+        start = temp_prev;
         rtrn = 0;
     }
 
     else
     {
-        new_list = (struct record*)malloc(sizeof(struct record));
+        new_list = new record;
         new_list->accountno = uaccountno;
         strcpy(new_list->name, uname); 
         strcpy(new_list->address, uaddress);
@@ -170,7 +194,7 @@ int llist :: addRecord (int, char[], char[])
         if (value >= uaccountno)
         {   
             new_list->next = start;
-            *start_ptr = new_list;
+            start = new_list;
         }
         
         else
@@ -192,13 +216,12 @@ int llist :: addRecord (int, char[], char[])
             new_list->next = temp_next;
             rtrn = 0;
         }
-}
+    }
 return(rtrn);
 }
-int llist :: printRecord (int)
-{
-//**int printRecord (struct record * start, int uaccountno)**//
 
+int llist :: printRecord (int uaccountno)
+{
     struct record * temp_old, *temp_new;
     int rtrn_val, value, record_num;
 
@@ -277,13 +300,11 @@ int llist :: printRecord (int)
 return(rtrn_val);      
 }
 
-int llist :: deleteRecord(int)
+int llist :: deleteRecord(int uaccountno)
 {
-//**int deleteRecord (struct record** start_ptr, int uaccountno) **//
-    struct record * temp_old, *temp_new, *start;
+    struct record * temp_old, *temp_new;
     int rtrn_val, value, record_num;
 
-    start = *start_ptr;
     rtrn_val = -1;
     record_num = 0;
 
@@ -334,8 +355,8 @@ int llist :: deleteRecord(int)
 
             if (record_num == 1)
             {
-                    *start_ptr = temp_new;
-                    free(temp_old);
+                    start = temp_new;
+                    delete(temp_old);
                     temp_old = temp_new;
                     if (temp_new != NULL)
                         value = temp_new->accountno;
