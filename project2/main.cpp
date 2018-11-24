@@ -37,7 +37,7 @@ using namespace std;
 int  main()
 {
     int choice, running, accountno, rtrn, rtrnd, rtrnpr, main_rtrn;
-    char name[25], address[80];
+    char name[25], address[80], garbage[10];
 
     llist begin;
 
@@ -77,7 +77,8 @@ if (main_rtrn == 0)
             
             cout << "Please enter the account number of the new record:\n";
             cout << "ONLY INTEGERS 0-9 ALLOWED, NO CHARACTERS\n";
-            scanf("%d", &accountno);
+            std::cin >> accountno;
+            cin.getline(garbage, 100);
            
             cout << "Please enter the name of the new record:\n";
             std::cin.getline(name, 25);
@@ -85,6 +86,7 @@ if (main_rtrn == 0)
             cout << "Please enter the address of the new record:\n";
             cout << "Type $ after you are done and hit enter.\n";
             std::cin.getline(address, 80, '$');        
+            cin.getline(garbage, 100);
 
             if (debugmode == 1)
             {
@@ -94,16 +96,13 @@ if (main_rtrn == 0)
                
                 cout << "Function Called:\t getaddress\n\n";
                 cout << "Parameters Passed:\n";
-                cout << "Address:\n%s\n" <<  address;
-                cout << "(Max) Size of address:\t%lu\n\n" <<  sizeof address;
+                cout << "Address:\n\n" <<  address;
  
                 cout << "Function Called:\t addRecord\n\n";
                 cout << "Parameters Passed:\n";
-                cout << "Account number:\t%d\n" << accountno;
-                cout << "Name:\t%s" << name;
-                cout << "Address:\n";
-                cout << "%s\n\n" << address;
-                cout << "\n";  
+                cout << "Account number:\t" << accountno << endl;
+                cout << "Name:\t" << name << endl;
+                cout << "Address:\t" << address << endl;
  
                 cout << "***DEBUG END***\n";
                 cout << "\n";         
@@ -117,10 +116,11 @@ if (main_rtrn == 0)
            break;
 
         case 2:
-            cout << "You chose Option 2\n"; 
+            cout << "You chose Option 2" << endl; 
             
-            cout << "Please enter the account number of the record you want to print:\n";
-            scanf("%d", &accountno);
+            cout << "Please enter the account number of the record you want to print:" << endl;
+            cin >> accountno;
+            cin.getline(garbage, 100);
             
             if (debugmode == 1)
             {
@@ -128,9 +128,9 @@ if (main_rtrn == 0)
                 cout << "***DEBUG START***\n";
                 cout << "\n";       
  
-                cout << "Function Called:\t printRecord\n\n";
-                cout << "Parameters Passed:\n";
-                cout << "Account number:\t%d\n\n" << accountno;
+                cout << "Function Called:\t printRecord" << endl;
+                cout << "Parameters Passed:" << endl;
+                cout << "Account number:\t" << accountno << endl;
               
                 cout << "\n";  
                 cout << "***DEBUG END***\n";
@@ -176,7 +176,7 @@ if (main_rtrn == 0)
    
                 cout << "Function Called:\t deleteRecord\n\n";
                 cout << "Parameters Passed:\n";
-                cout << "account number:\t%d\n\n" <<  accountno;
+                cout << "account number:\t\n\n" <<  accountno;
  
                 cout << "\n";  
                 cout << "***DEBUG END***\n";
@@ -207,7 +207,7 @@ if (main_rtrn == 0)
                 cout << "\n";         
             }
 
-            cout << "Exiting program.\n\n";
+            cout << "Exiting program." << endl
             running = 0;
             break;
 

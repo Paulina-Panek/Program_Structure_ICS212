@@ -261,9 +261,9 @@ int llist :: printRecord (int uaccountno)
 
             if (record_num > 1)
             {
-                std::cout << "Account No:\t\n" << temp_new->accountno;
-                std::cout << "Name:\t" << temp_new->name;
-                std::cout << "Address:\n\n" << temp_new->address;
+                std::cout << "Account No:\t" << temp_new->accountno << endl;
+                std::cout << "Name:\t" << temp_new->name << endl;
+                std::cout << "Address:" << temp_new->address << endl;
                 
                 temp_old = temp_new;
 
@@ -278,9 +278,9 @@ int llist :: printRecord (int uaccountno)
 
             if (record_num == 1)
             {
-                printf("Account No:\t%d\n", temp_old->accountno);
-                printf("Name:\t%s", temp_old->name);
-                printf("Address:\n%s\n", temp_old->address);
+                std::cout << "Account No:\t" << temp_old->accountno << endl;
+                std::cout << "Name:\t" << temp_old->name << endl;
+	        std::cout << "Address:\t" << temp_old->address << endl;
        
             temp_old = temp_new;
         
@@ -293,9 +293,7 @@ int llist :: printRecord (int uaccountno)
             if (temp_old == NULL)
                 value = uaccountno + 1;
             }
-
        }
-
     }
 return(rtrn_val);      
 }
