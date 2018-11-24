@@ -194,6 +194,20 @@ if (main_rtrn == 0)
         case 5:
             cout << "You chose Option 5" << endl;
             
+            if (debugmode == 1)
+            {
+                cout << "\n";   
+                cout << "***DEBUG START***\n";
+                cout << "\n";       
+ 
+                cout << "Function Called:\t reverse()" << endl;
+                cout << "Parameters Passed:\tnone" << endl;
+            
+                cout << "\n";  
+                cout << "***DEBUG END***\n";
+                cout << "\n";         
+            }
+
             begin.reverse(); 
             break;
 

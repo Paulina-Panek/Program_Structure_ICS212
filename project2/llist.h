@@ -1,3 +1,20 @@
+/****************************************************************
+//  NAME:        Paulina Panek
+//
+//  HOMEWORK:    project2
+//
+//  CLASS:       ICS 212
+//
+//  INSTRUCTOR:  Ravi Narayan
+//
+//  DATE:        Nov 25th, 2018
+//
+//  FILE:        llist.h
+//
+//  DESCRIPTION:
+//  Header file that contains the class definition
+//  *************************************************************/
+
 #ifndef LLIST_H
 #define LLIST_H
 

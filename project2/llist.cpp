@@ -122,6 +122,17 @@ void llist :: writefile()
     }
 }
 
+/***************************************************************
+//  Function name: llist::reverse
+// 
+//   DESCRIPTION:   Reverses linked list
+//
+//   PARAMETERS:    record * mylist - pointer to linked list
+//
+//   RETURN VALUE:  Reversed linked list
+//                  
+//  ****************************************************************/
+
 record* llist :: reverse(record* mylist)
 {
     struct record * ptr;
@@ -140,6 +151,13 @@ record* llist :: reverse(record* mylist)
     return(mylist);
 }
 
+/***************************************************************
+//  Function name: llist::cleanup
+// 
+//   DESCRIPTION:   Deallocates space when we leave the program
+//                  
+//  ****************************************************************/
+
 void llist :: cleanup()
 {
     struct record * next, *prev;
@@ -154,6 +172,13 @@ void llist :: cleanup()
     }
 }
 
+/***************************************************************
+//  Function name: llist::llist()
+// 
+//   DESCRIPTION:   Constructor, initializes start and calls readfile
+//                  
+//  ****************************************************************/
+
 llist :: llist()
 {
     start = NULL;
@@ -162,6 +187,13 @@ llist :: llist()
     readfile();
 }
 
+/***************************************************************
+//  Function name: llist::llist(char)
+// 
+//   DESCRIPTION:   Constructor, initializes start and calls readfile
+//                  
+//  ****************************************************************/
+
 llist :: llist(char input[])
 {
     start = NULL;
@@ -169,11 +201,34 @@ llist :: llist(char input[])
     readfile();
 }
 
+/***************************************************************
+//  Function name: llist::~llist()
+// 
+//   DESCRIPTION:   Destructor, calls for writing file and cleaning up
+//                  the memory
+//                  
+//  ****************************************************************/
+
 llist :: ~llist()
 {
     writefile();
     cleanup();
 }
+
+/****************************************************************
+//  Function name : addRecord
+//
+//  DESCRIPTION:
+//  Adds a record to the linked list; sorted by accountno
+//
+//  Parameters:  
+//               uaccountno - account number of the record to be added
+//               uname - user name
+//               uaddress - user address
+//  Return value: 
+//                0 - record has been added
+//                -1 - record not added
+//  *************************************************************/
 
 int llist :: addRecord (int uaccountno, char uname[], char uaddress[])
 {
@@ -232,6 +287,19 @@ int llist :: addRecord (int uaccountno, char uname[], char uaddress[])
     }
 return(rtrn);
 }
+
+/****************************************************************
+//  Function name: llist:: printRecord
+//  DESCRIPTION:
+//  Prints record by accountno
+//
+//  Parameters:  
+//               uaccountno - account number of the record to be printed
+//
+//  Return value: 
+//               -1 - no record with such accountno exists
+//                0 - record(s) have been printed
+//  *************************************************************/
 
 int llist :: printRecord (int uaccountno)
 {
@@ -310,6 +378,19 @@ int llist :: printRecord (int uaccountno)
     }
 return(rtrn_val);      
 }
+/*******************************************************************
+//  Function Name : llist::deleteRecord
+//
+//  DESCRIPTION:
+//  Function that deletes record that has the provided account number
+//
+//  Parameters:  
+//             uaccountno - account number of the record to be deleted
+//
+//  Return value: 
+//               -1 - no record has been deleted
+//                0 - record(s) have been deleted
+//  *************************************************************/
 
 int llist :: deleteRecord(int uaccountno)
 {
@@ -386,6 +467,13 @@ int llist :: deleteRecord(int uaccountno)
 return(rtrn_val);
 }
 
+/***************************************************************
+//  Function name: llist::reverse()
+// 
+//   DESCRIPTION:   Reverses list
+//                  
+//  ****************************************************************/
+
 void llist :: reverse()
 {
     if (start == NULL)
@@ -397,6 +485,13 @@ void llist :: reverse()
         reverse (start);
     }
 }
+
+/***************************************************************
+//  Function name: ostream & operator << 
+// 
+//   DESCRIPTION:   Operator overload for printing all records
+//                  
+//  ****************************************************************/
 
 ostream & operator << (ostream &out, const llist &mylist)
 {
