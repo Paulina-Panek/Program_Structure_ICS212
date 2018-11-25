@@ -32,7 +32,7 @@
 int llist :: readfile()
 {
 
-    string name, address, account_str;
+    string name, address, account_str, testing;
     int accountno, eof_check, val;//, counter;
 
     ifstream myfile;
@@ -54,6 +54,7 @@ int llist :: readfile()
         getline(myfile, name, '\n');      //name
 
         getline(myfile, address, '$');      //address
+        getline(myfile, testing, '\n');
 		
 	/*	if (debugmode == 1)
             { 
@@ -274,6 +275,8 @@ int llist :: addRecord (int uaccountno, char uname[], char uaddress[])
             rtrn = 0;
         }
     }
+    cout << "uaccountno: '" << uaccountno << "'\tuname: '"<< uname << "'\tuaddress: '" << uaddress << "'" << endl;
+
 return(rtrn);
 }
 
