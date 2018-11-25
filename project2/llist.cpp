@@ -32,40 +32,32 @@
 int llist :: readfile()
 {
 
-    char name[25], address[80], buffer;
-    int accountno, eof_check, val, counter;
+    string  name, address, account_str, buffer;
+    int accountno, val;
   
     ifstream myfile;
     myfile.open(filename);
 
-    eof_check = 0;
+    val = 1;
 
     if (myfile.is_open() == false)
     {
         val = 0;
     }
 
-    while(myfile.getline(name, 25))
+    while(val == 1 && !myfile.eof())
     {
-        counter = 0; 
+        account_str.clear();
+        name.clear();
+        address.clear();
 
-        myfile >> accountno;
-        myfile.get(buffer);
-
-        while (counter < 80)
-        {
-            myfile.get(address[counter]);
- 
-            if (address[counter] == '\n' && address[counter - 1] == '\n')
-            {
-                address[counter] = 0;
-                counter = 80;
-            }
-            counter++;
-        }
-       
-        eof_check ++;
-          
+        getline(myfile, account_str, '\n');
+        accountno = atoi(account_str.c_str());
+        getline(myfile, name, '\n');
+        getline(myfile, address, '$');
+        if (!myfile.eof())
+	    getline(myfile, buffer, '\n');
+         
             if (debugmode == 1)
             { 
                 std::cout << "***DEBUG (inside readfile) START***\n";
@@ -79,7 +71,7 @@ int llist :: readfile()
                 std::cout << "***DEBUG (inside readfile) END***\n";
             }
 
-            addRecord(accountno, name, address);
+            addRecord(accountno, (char*)(name.c_str()), (char*)(address.c_str()));
 
         }
     myfile.close();
@@ -99,7 +91,6 @@ int llist :: readfile()
 
 void llist :: writefile()
 {
-
     struct record * ptr;
     ofstream myfile;
     ptr = start;
@@ -113,9 +104,13 @@ void llist :: writefile()
             myfile << ptr->accountno << endl;
             myfile << ptr->name << endl;
             myfile << ptr->address << endl;
-            myfile << "$\n" << endl;
+            myfile << "$";
 
             ptr = ptr->next;
+            if (ptr != NULL)
+                {
+                    myfile << endl;
+                }
         }
         
         myfile.close();
