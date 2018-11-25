@@ -32,9 +32,9 @@
 int llist :: readfile()
 {
 
-    char name[25], address[80], buffer;
-    int accountno, eof_check, val, counter;
-  
+    string name, address, account_str;
+    int accountno, eof_check, val;//, counter;
+
     ifstream myfile;
     myfile.open(filename);
 
@@ -44,29 +44,18 @@ int llist :: readfile()
     {
         val = 0;
     }
+	while (!myfile.eof())
+	{
+        account_str.clear();
+        name.clear();
+        address.clear();
+        getline(myfile, account_str, '\n');      //account number
+		accountno = atoi(account_str.c_str());
+        getline(myfile, name, '\n');      //name
 
-    while(myfile.getline(name, 25))
-    {
-        counter = 0; 
-
-        myfile >> accountno;
-        myfile.get(buffer);
-
-        while (counter < 80)
-        {
-            myfile.get(address[counter]);
- 
-            if (address[counter] == '\n' && address[counter - 1] == '\n')
-            {
-                address[counter] = 0;
-                counter = 80;
-            }
-            counter++;
-        }
-       
-        eof_check ++;
-          
-            if (debugmode == 1)
+        getline(myfile, address, '$');      //address
+		
+	/*	if (debugmode == 1)
             { 
                 std::cout << "***DEBUG (inside readfile) START***\n";
                 std::cout << "\n"; 
@@ -78,10 +67,10 @@ int llist :: readfile()
                 std::cout << "\n\n" << address;
                 std::cout << "***DEBUG (inside readfile) END***\n";
             }
-
-            addRecord(accountno, name, address);
-
-        }
+        */
+       //if (accountno)
+        addRecord(accountno, (char *)(name.c_str()), (char *)(address.c_str()));
+    }
     myfile.close();
     return(val);
 }
