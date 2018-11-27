@@ -34,15 +34,22 @@ using namespace std;
 // // 
 // //  ****************************************************************/ 
 
-int  main()
+int  main(int argc, char** argv)
 {
     int choice, running, accountno, rtrn, rtrnd, rtrnpr, main_rtrn;
     char name[25], address[80], garbage[10];
 
+    main_rtrn = 0;
+
+    if (argc > 1)
+    {
+        cout << "Wrong program call" << endl;
+        main_rtrn = -1;
+    }
+
     llist begin;
 
     running = 1;
-    main_rtrn = 0;
 
 if (main_rtrn == 0)
 {
