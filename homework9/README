@@ -1,0 +1,2 @@
+Use JNI (Java Native Interface) to create a program that allows a front-end Java user-interface which calls C functions.
+The program you will develop must provide the same output as Homework1. Start by researching JNI on the web and trying out simple examples.
