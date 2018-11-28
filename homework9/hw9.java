@@ -39,21 +39,27 @@ public class hw9
         if (scanner.hasNextInt())
         {
             input = scanner.nextInt();
-            System.out.printf("You entered:\t" + input +"\n");
-    
-            index = 1;
-    
-            System.out.print("Index\t\tFactor\n");
-
-            for (i = 1; i<= input; i++)
-            {
-                factor = isDivisible(input, i);
         
-                if (factor == 1)
+            if (input <= 0)
+            {
+                System.out.print("Incorrect input format. Make sure you enter an integer larger than 0.\n");
+            }
+            else
+            {                    
+                System.out.printf("You entered:\t" + input +"\n");
+                index = 1;
+                System.out.print("Index\tFactor\n");
+
+                for (i = 1; i<= input; i++)
                 {
-                    System.out.println(String.format("%5d\t\t%6d", index, i));
-                    index++;
-                }  
+                    factor = isDivisible(input, i);
+        
+                    if (factor == 1)
+                    {
+                        System.out.println(String.format("%5d\t%6d", index, i));
+                        index++;
+                    }  
+                }
             }
         }
         else
