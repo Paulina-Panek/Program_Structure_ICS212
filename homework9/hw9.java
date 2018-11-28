@@ -20,6 +20,7 @@ import java.util.Scanner;
 
 public class hw9
 {
+    static
     {
         System.loadLibrary("hw9");
     }
@@ -50,7 +51,7 @@ public class hw9
         
                 if (factor == 1)
                 {
-                    System.out.printf(index + "\t\t" + i);
+                    System.out.println(String.format("%5d\t\t%6d", index, i));
                     index++;
                 }  
             }
