@@ -14,3 +14,18 @@
 //  DESCRIPTION:
 //  Contains function definitions for class Mew.
 //  *************************************************************/
+
+#include <iostream>
+#include "Mew.h"
+using namespace std;
+
+Mew::Mew()
+{
+    type = "purple";
+    weight = 2.3;
+}
+
+Mew::~Mew()
+{
+
+}

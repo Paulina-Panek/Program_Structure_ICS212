@@ -16,4 +16,15 @@
 //
 //  *************************************************************/
 
+#ifndef PIKACHU_H
+#define PIKACHU_H
 
+#include <iostream>
+#include "Pokemon.h"
+using namespace std;
+
+class Pikachu
+{
+ };
+
+#endif

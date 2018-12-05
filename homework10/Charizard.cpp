@@ -14,3 +14,18 @@
 //  DESCRIPTION:
 //  Contains function definitions for class Charizard.
 //  *************************************************************/
+
+#include <iostream>
+#include "Charizard.h"
+using namespace std;
+
+Charizard::Charizard()
+{
+    type = "orange";
+    weight = 6.3;
+}
+
+Charizard::~Charizard()
+{
+
+}

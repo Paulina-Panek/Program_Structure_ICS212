@@ -16,4 +16,15 @@
 //
 //  *************************************************************/
 
+#ifndef CHARIZARD_H
+#define CHARIZARD_H
 
+#include <iostream>
+#include "Pokemon.h"
+using namespace std;
+
+class Charizard
+{
+ };
+
+#endif

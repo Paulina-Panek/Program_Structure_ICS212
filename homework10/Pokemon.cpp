@@ -12,5 +12,20 @@
 //  FILE:        Pokemon.cpp
 //
 //  DESCRIPTION:
-//  Contains function definitions for class Pokemon.
+//  Contains the class Pokemon.
 //  *************************************************************/
+
+#include <iostream>
+#include "Pokemon.h"
+using namespace std;
+
+Pokemon::Pokemon()
+{
+
+}
+
+Pokemon::~Pokemon()
+{
+
+}
+

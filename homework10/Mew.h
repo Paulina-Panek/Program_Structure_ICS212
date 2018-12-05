@@ -16,4 +16,15 @@
 //
 //  *************************************************************/
 
+#ifndef MEW_H
+#define MEW_H
 
+#include <iostream>
+#include "Pokemon.h"
+using namespace std;
+
+class Mew
+{
+ };
+
+#endif

@@ -14,3 +14,24 @@
 //  DESCRIPTION:
 //  Main function that uses class hierarchy
 //  *************************************************************/
+
+#include <iostream>
+#include "Pokemon.h"
+#include "Pikachu.h"
+#include "Mew.h"
+#include "Charizard.h"
+using namespace std;
+
+int main()
+{
+
+
+    return(0);
+}
+
+
+
+void checkPokedex(Pokemon *pokemon)
+{
+    pokemon->printData();
+}
