@@ -48,7 +48,8 @@ int main()
     pokemonMap["Mew"] = poke4;
     pokemonMap["Charizard"] = poke6;
 
-    cout << "Pokemons in pokemonVector:" << endl;
+    cout << endl;
+    cout << "----- Pokemons in pokemonVector: ------" << endl;
 
     for (iter = pokemonVector.begin(); iter != pokemonVector.end(); ++iter)
     {
@@ -56,11 +57,14 @@ int main()
         cout << endl;
     }
 
-    cout << "Pokemons in pokemonMap:" << endl;
+    cout << "----- Pokemons in pokemonMap: -----" << endl;
  
-    checkPokedex(pokemonMap["Pikachu"]); 
+    checkPokedex(pokemonMap["Pikachu"]);
+    cout << endl;
     checkPokedex(pokemonMap["Mew"]); 
+    cout << endl;
     checkPokedex(pokemonMap["Charizard"]); 
+    cout << endl;
 
     return(0);
 }

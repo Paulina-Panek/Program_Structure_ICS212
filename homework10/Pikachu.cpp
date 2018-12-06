@@ -22,7 +22,7 @@ using namespace std;
 Pikachu::Pikachu()
 {
     type = "yellow";
-    weight = 5.0;
+    weight = 5.1;
 }
 
 Pikachu::~Pikachu()
