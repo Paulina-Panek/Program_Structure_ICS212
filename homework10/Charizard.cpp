@@ -29,3 +29,11 @@ Charizard::~Charizard()
 {
 
 }
+
+
+void Charizard::printData()
+{
+    cout << "The pokemon is: Charizard" << endl;
+    cout << "It is of type:\t" << type << endl;
+    cout << "The weight is:\t" << weight << endl;
+}

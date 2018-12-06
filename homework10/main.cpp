@@ -20,11 +20,47 @@
 #include "Pikachu.h"
 #include "Mew.h"
 #include "Charizard.h"
+#include <vector>
+#include <map>
+#include <string>
 using namespace std;
+
+void checkPokedex(Pokemon *);
 
 int main()
 {
+    vector<Pokemon*> pokemonVector;
+    std::map<std::string, Pokemon*> pokemonMap;
+    vector<Pokemon*>::iterator iter;
 
+    Pokemon* poke1 = new Pikachu;
+    Pokemon* poke2 = new Pikachu;
+    Pokemon* poke3 = new Mew;
+    Pokemon* poke4 = new Mew;
+    Pokemon* poke5 = new Charizard;
+    Pokemon* poke6 = new Charizard;
+
+    pokemonVector.push_back(poke1);
+    pokemonVector.push_back(poke3);
+    pokemonVector.push_back(poke5);
+
+    pokemonMap["Pikachu"] = poke2;
+    pokemonMap["Mew"] = poke4;
+    pokemonMap["Charizard"] = poke6;
+
+    cout << "Pokemons in pokemonVector:" << endl;
+
+    for (iter = pokemonVector.begin(); iter != pokemonVector.end(); ++iter)
+    {
+        checkPokedex(*iter);
+        cout << endl;
+    }
+
+    cout << "Pokemons in pokemonMap:" << endl;
+ 
+    checkPokedex(pokemonMap["Pikachu"]); 
+    checkPokedex(pokemonMap["Mew"]); 
+    checkPokedex(pokemonMap["Charizard"]); 
 
     return(0);
 }

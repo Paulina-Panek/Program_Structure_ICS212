@@ -29,3 +29,11 @@ Mew::~Mew()
 {
 
 }
+
+
+void Mew::printData()
+{
+    cout << "The pokemon is: Mew" << endl;
+    cout << "It is of type:\t" << type << endl;
+    cout << "The weight is:\t" << weight << endl;
+}

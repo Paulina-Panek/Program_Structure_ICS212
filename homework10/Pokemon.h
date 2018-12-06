@@ -23,11 +23,18 @@
 #include "Pokemon.h"
 using namespace std;
 
+
+
 class Pokemon
 {
     protected:
-    string type; // e.g., electric, phychic, dark, etc
-    float weight;
+        string type;
+        float weight;
+    public:
+        virtual void printData() = 0;
+        Pokemon();
+        ~Pokemon();
+        
 
 };
 

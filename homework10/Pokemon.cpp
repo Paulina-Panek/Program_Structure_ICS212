@@ -29,3 +29,8 @@ Pokemon::~Pokemon()
 
 }
 
+void Pokemon::printData()
+{
+    cout << "The type is:\t" << endl;
+    cout << "The weight is:\t" << endl;
+}

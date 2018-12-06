@@ -23,8 +23,12 @@
 #include "Pokemon.h"
 using namespace std;
 
-class Pikachu
+class Pikachu: public Pokemon
 {
- };
+    public:
+        Pikachu();
+        ~Pikachu();
+        void printData();
+};
 
 #endif
