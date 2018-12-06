@@ -19,17 +19,36 @@
 #include "Mew.h"
 using namespace std;
 
+/*****************************************************************
+//  Function name: Mew::Mew()
+// 
+//   DESCRIPTION:   Constructor; initializes variables for Mew
+//                  
+//  ****************************************************************/
+
 Mew::Mew()
 {
     type = "purple";
     weight = 2.3;
 }
 
+/*****************************************************************
+//  Function name: Mew::~Mew()
+// 
+//   DESCRIPTION:   Destructor
+//                  
+//  ****************************************************************/
+
 Mew::~Mew()
 {
-
 }
 
+/*****************************************************************
+//  Function name: Mew::printData()
+// 
+//   DESCRIPTION:  Prints variables for Mew
+//                  
+//  ****************************************************************/
 
 void Mew::printData()
 {

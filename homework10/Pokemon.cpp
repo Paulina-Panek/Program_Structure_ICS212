@@ -12,25 +12,35 @@
 //  FILE:        Pokemon.cpp
 //
 //  DESCRIPTION:
-//  Contains the class Pokemon.
+//  Contains the class functions for Pokemon.
 //  *************************************************************/
 
 #include <iostream>
 #include "Pokemon.h"
 using namespace std;
 
+/*****************************************************************
+//  Function name: Pokemon::Pokemon()
+// 
+//   DESCRIPTION:   Constructor
+//                  
+//  ****************************************************************/
+
 Pokemon::Pokemon()
 {
-
+    type = "colored";
+    weight = 100.5;
 }
+
+/*****************************************************************
+//  Function name: Pokemon::~Pokemon()
+// 
+//   DESCRIPTION:   Destructor (virtual for the base class)
+//                  
+//  ****************************************************************/
 
 Pokemon::~Pokemon()
 {
-
 }
 
-void Pokemon::printData()
-{
-    cout << "The type is:\t" << endl;
-    cout << "The weight is:\t" << endl;
-}
+

@@ -30,5 +30,4 @@ class Mew: public Pokemon
         ~Mew();
         void printData();
 };
-
 #endif

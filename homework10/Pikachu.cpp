@@ -19,16 +19,36 @@
 #include "Pikachu.h"
 using namespace std;
 
+/*****************************************************************
+//  Function name: Pikachu::Pikachu()
+// 
+//   DESCRIPTION:   Constructor, initializes variables for Pikachu
+//                  
+//  ****************************************************************/
+
 Pikachu::Pikachu()
 {
     type = "yellow";
     weight = 5.1;
 }
 
+/*****************************************************************
+//  Function name: Pikachu::~Pikachu()
+// 
+//   DESCRIPTION:   Destructor
+//                  
+//  ****************************************************************/
+
 Pikachu::~Pikachu()
 {
-
 }
+
+/*****************************************************************
+//  Function name: Pikachu::printData()
+// 
+//   DESCRIPTION:  Prints Pikachu variables
+//                  
+//  ****************************************************************/
 
 void Pikachu::printData()
 {

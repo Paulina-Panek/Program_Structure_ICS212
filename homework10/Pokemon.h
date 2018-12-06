@@ -23,8 +23,6 @@
 #include "Pokemon.h"
 using namespace std;
 
-
-
 class Pokemon
 {
     protected:
@@ -33,9 +31,8 @@ class Pokemon
     public:
         virtual void printData() = 0;
         Pokemon();
-        ~Pokemon();
+        virtual ~Pokemon();
         
 
 };
-
 #endif

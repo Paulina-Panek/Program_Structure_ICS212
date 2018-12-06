@@ -26,9 +26,8 @@ using namespace std;
 class Charizard: public Pokemon
 {
     public:
-        Charizard();
-        ~Charizard();
-        void printData();
+       Charizard();
+       void printData();
+       ~Charizard();
 };
-
 #endif

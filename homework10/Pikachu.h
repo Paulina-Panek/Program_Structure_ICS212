@@ -30,5 +30,4 @@ class Pikachu: public Pokemon
         ~Pikachu();
         void printData();
 };
-
 #endif

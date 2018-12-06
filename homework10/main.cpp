@@ -12,7 +12,7 @@
 //  FILE:        main.cpp
 //
 //  DESCRIPTION:
-//  Main function that uses class hierarchy
+//  Main function that uses class hierarchy, map, and vector
 //  *************************************************************/
 
 #include <iostream>
@@ -27,12 +27,24 @@ using namespace std;
 
 void checkPokedex(Pokemon *);
 
+/*****************************************************************
+//  Function name: main
+// 
+//   PARAMETERS:   none
+//
+//   RETURN VALUE: 0 success
+//                 1 fail
+//                  
+//  ****************************************************************/
+
 int main()
 {
+    int rtrn_val;
     vector<Pokemon*> pokemonVector;
     std::map<std::string, Pokemon*> pokemonMap;
     vector<Pokemon*>::iterator iter;
 
+    rtrn_val = 1;
     Pokemon* poke1 = new Pikachu;
     Pokemon* poke2 = new Pikachu;
     Pokemon* poke3 = new Mew;
@@ -66,10 +78,22 @@ int main()
     checkPokedex(pokemonMap["Charizard"]); 
     cout << endl;
 
-    return(0);
+    delete(poke1);
+    delete(poke2);
+    delete(poke3);
+    delete(poke4);
+    delete(poke5);
+    delete(poke6);
+    rtrn_val = 0;
+    return(rtrn_val);
 }
 
-
+/*****************************************************************
+//  Function name: checkPokedex(Pokemon *)
+// 
+//   PARAMETERS:   Pokemon *pokemon : pointer to the pokemon
+//                  
+//  ****************************************************************/
 
 void checkPokedex(Pokemon *pokemon)
 {

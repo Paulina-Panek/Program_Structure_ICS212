@@ -19,17 +19,36 @@
 #include "Charizard.h"
 using namespace std;
 
+/*****************************************************************
+//  Function name: Charizard::Charizard()
+// 
+//   DESCRIPTION:   Constructor, initializes variables for Charizard
+//                  
+//  ****************************************************************/
+
 Charizard::Charizard()
 {
     type = "orange";
     weight = 6.3;
 }
 
+/*****************************************************************
+//  Function name: Charizard::Charizard()
+// 
+//   DESCRIPTION:  Destructor
+//                  
+//  ****************************************************************/
+
 Charizard::~Charizard()
 {
-
 }
 
+/*****************************************************************
+//  Function name: Charizard::printData()
+// 
+//   DESCRIPTION:   Prints variables for Charizard
+//                  
+//  ****************************************************************/
 
 void Charizard::printData()
 {
